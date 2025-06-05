@@ -17,18 +17,18 @@
   position: relative;
 }
 
-.header-search input {
+.header-search input{
   width: 100%;
   padding: 0.5rem 2.5rem 0.5rem 1rem;
   background-color: #48388E;
   border: none;
-  border-radius: 1rem;
+  border-radius: 2rem;
   color: white;
   font-family: 'Hind', sans-serif;
 }
 
 .header-search input::placeholder {
-  color: #EEF1FD;
+  color: #a287c8;
 }
 
 .search-icon {

@@ -11,29 +11,36 @@ export default class LoginPresenter {
     return generateLoginView();
   }
 
-  afterRender() {
-    setTimeout(() => {
-      const form = this.rootElement.querySelector('#login-form');
-      if (!form) {
-        console.error('Login form not found in afterRender');
+  async afterRender() {
+    const form = this.rootElement.querySelector('#login-form');
+    
+    if (!form) {
+      console.error('Login form not found');
+      return;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = form.querySelector('#email').value;
+      const password = form.querySelector('#password').value;
+
+      if (!email || !password) {
+        alert('Email and password are required');
         return;
       }
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = form.querySelector('#email').value;
-        const password = form.querySelector('#password').value;
 
-        try {
-          const result = await AuthService.login({ email, password });
+      try {
+        const result = await AuthService.login({ email, password });
 
-          LoginModel.setEmail(result.user.email);
-          localStorage.setItem('isLoggedIn', 'true');
+        LoginModel.setEmail(result.user.email);
 
-          window.location.hash = '#/dashboard';
-        } catch (err) {
-          alert('Login failed: ' + err.message);
-        }
-      });
-    }, 0);
+        localStorage.setItem('isLoggedIn', 'true');
+
+        window.location.hash = '#/dashboard';  
+      } catch (err) {
+        alert('Login failed: ' + err.message);
+      }
+    });
   }
 }

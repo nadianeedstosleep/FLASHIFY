@@ -2,31 +2,37 @@ import '../styles/sidebarStyle.css';
 import '../styles/main.css';
 
 const Sidebar = {
-  render(isOpen = true) {
-   return `
-    <nav class="sidebar ${isOpen ? 'expanded' : 'collapsed'}">
+  render() {
+    const isOpen = localStorage.getItem('sidebarOpen') !== 'false';
+    const currentHash = window.location.hash;
+
+    return `
+      <nav class="sidebar ${isOpen ? 'expanded' : 'collapsed'}">
         <div class="sidebar-header">
-        <button id="toggleSidebar" class="sidebar-toggle">&#9776;</button>
-        <img src="/assets/icons/flashify-logo.svg" alt="Flashify Logo" class="sidebar-logo ${isOpen ? 'expanded' : 'collapsed'}" />
+          <button id="toggleSidebar" class="sidebar-toggle">&#9776;</button>
+          <img src="/assets/icons/flashify-logo.svg" alt="Flashify Logo" class="sidebar-logo ${isOpen ? 'expanded' : 'collapsed'}" />
         </div>
         <ul class="sidebar-menu">
-        ${this.renderMenuItem('Home', 'home', isOpen, true)}
-        ${this.renderMenuItem('Community', 'users', isOpen)}
-        ${this.renderMenuItem('Notifications', 'bell', isOpen)}
-        <hr />
-        ${this.renderMenuItem('History', 'clock', isOpen)}
-        ${this.renderMenuItem('Collection', 'folder', isOpen)}
+          ${this.renderMenuItem('Dashboard', 'home', isOpen, currentHash === '#/dashboard')}
+          ${this.renderMenuItem('Community', 'users', isOpen, currentHash === '#/community')}
+          ${this.renderMenuItem('Notifications', 'bell', isOpen, currentHash === '#/notifications')}
+          <hr />
+          ${this.renderMenuItem('History', 'clock', isOpen, currentHash === '#/history')}
+          ${this.renderMenuItem('Collection', 'folder', isOpen, currentHash === '#/collection')}
         </ul>
-    </nav>
+      </nav>
     `;
   },
 
   renderMenuItem(label, iconName, isOpen, isActive = false) {
     const icon = this.getIcon(iconName);
+    const route = '#/' + label.toLowerCase(); 
     return `
       <li class="${isActive ? 'active' : ''}">
-        <span class="sidebar-icon">${icon}</span>
-        <span class="sidebar-label ${isOpen ? '' : 'collapsed'}">${label}</span>
+        <a href="${route}" class="sidebar-link">
+          <span class="sidebar-icon">${icon}</span>
+          <span class="sidebar-label ${isOpen ? '' : 'collapsed'}">${label}</span>
+        </a>
       </li>
     `;
   },
@@ -45,11 +51,15 @@ const Sidebar = {
   afterRender() {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.getElementById('toggleSidebar');
+    const logo = sidebar.querySelector('.sidebar-logo');
 
     toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('expanded');
-      sidebar.classList.toggle('collapsed');
-
+      const isExpanded = sidebar.classList.contains('expanded');
+      sidebar.classList.toggle('expanded', !isExpanded);
+      sidebar.classList.toggle('collapsed', isExpanded);
+      logo.classList.toggle('expanded', !isExpanded);
+      logo.classList.toggle('collapsed', isExpanded);
+      localStorage.setItem('sidebarOpen', String(!isExpanded));
       document.dispatchEvent(new Event('sidebarToggled'));
     });
   }

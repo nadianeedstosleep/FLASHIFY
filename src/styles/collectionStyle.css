@@ -1,0 +1,168 @@
+.collection-page {
+  padding: 2rem 1.5rem;
+  color: white;
+  font-family: 'Hind', sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.collection-page h1 {
+  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #EEF1FD;
+  margin-bottom: 0.5rem;
+}
+
+.collection-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.collection-title {
+  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #EEF1FD;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.collection-subtitle {
+  font-size: 1rem;
+  color: #EEF1FD;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.collection-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width:100%;
+}
+
+.collection-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.add-btn:hover {
+  background-color: #c18fc2;
+}
+
+.add-btn {
+  background: linear-gradient(to left, #B85FBF, #DAAAD6);;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: 'hind', sans-serif;
+  transition: background 0.2s ease;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 700px;
+}
+
+.collection-search {
+  border: none;
+  background: transparent;
+  color: #1F0D68;
+  font-size: 1rem;
+  width: 250px;
+  outline: none;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #EEF1FD;
+  font-size: 1rem;
+  font-family: 'Hind', sans-serif;
+}
+
+.search-bar::placeholder {
+  color: #bba7c5;
+}
+
+.search-icon,
+.filter-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+
+.filter-icon {
+  padding: 0.2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.collection-card {
+  text-decoration: none;
+  background-color: #DAAAD6;
+  color: #1F0D68;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+
+.collection-card:hover {
+  transform: translateY(-4px);
+}
+
+.collection-card img {
+  width: 100px;
+  margin-bottom: 0.75rem;
+}
+
+.collection-card-title {
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.collection-card-count {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
