@@ -2,6 +2,9 @@ import '../styles/headerStyle.css';
 
 const Header = {
   render() {
+    const user = JSON.parse(localStorage.getItem('loggedInUser')) || {};
+    const storedPic = localStorage.getItem('profilePicture') || 'https://ui-avatars.com/api/?name=User&background=DAAAD6&color=fff';
+
     return `
     <header class="app-header">
         <div class="header-logo">
@@ -20,11 +23,11 @@ const Header = {
 
         <div class="profile-wrapper">
             <button id="profileBtn" class="profile-button">
-            <img src="https://ui-avatars.com/api/?name=User&background=DAAAD6&color=fff" alt="User" class="avatar" />
+            <img src="${storedPic}" alt="User" class="avatar" />
             <img src="/assets/icons/dropdown-icon.svg" alt="Dropdown" class="dropdown-icon" />
             </button>
             <div id="profileDropdown" class="profile-dropdown hidden">
-            <a href="#/profile-pic-edit">Profile Picture</a>
+            <a href="#/profile" id="profileLink">Profile</a>
             <a href="#/" id="logoutLink">Logout</a>
             </div>
         </div>
@@ -33,28 +36,39 @@ const Header = {
     `;
   },
 
-afterRender() {
-  const profileBtn = document.getElementById('profileBtn');
-  const dropdown = document.getElementById('profileDropdown');
-  const logoutLink = document.getElementById('logoutLink');
+  afterRender() {
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdown = document.getElementById('profileDropdown');
+    const logoutLink = document.getElementById('logoutLink');
+    const profileLink = document.getElementById('profileLink');
 
-  profileBtn.addEventListener('click', () => {
-    dropdown.classList.toggle('hidden');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.classList.add('hidden');
+    if (!profileBtn || !dropdown || !logoutLink || !profileLink) {
+      console.warn('Some header elements not found in DOM');
+      return;
     }
-  });
 
-  logoutLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    window.location.hash = '#/login';
-  });
-}
+    profileBtn.addEventListener('click', () => {
+      dropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+
+    logoutLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.hash = '#/login';
+    });
+
+    profileLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = '#/profile';
+    });
+  }
 };
 
 export default Header;

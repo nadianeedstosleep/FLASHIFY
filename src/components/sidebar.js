@@ -51,7 +51,17 @@ const Sidebar = {
   afterRender() {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.getElementById('toggleSidebar');
+
+    if (!sidebar || !toggleBtn) {
+      console.warn('[Sidebar] Sidebar or toggle button not found.');
+      return;
+    }
+
     const logo = sidebar.querySelector('.sidebar-logo');
+    if (!logo) {
+      console.warn('[Sidebar] Logo not found inside sidebar.');
+      return;
+    }
 
     toggleBtn.addEventListener('click', () => {
       const isExpanded = sidebar.classList.contains('expanded');
