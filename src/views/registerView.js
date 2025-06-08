@@ -52,3 +52,54 @@ export default function generateRegisterView() {
 
   `;
 }
+
+export function afterRender(onSubmitCallback) {
+  const form = document.querySelector('#register-form');
+
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = form.querySelector('#name').value;
+    const email = form.querySelector('#email').value;
+    const password = form.querySelector('#password').value;
+
+    if (onSubmitCallback) {
+      onSubmitCallback({ name, email, password });
+    }
+  });
+}
+
+export function showSuccessModal() {
+  const modal = document.getElementById('registerSuccessModal');
+  const closeBtn = document.getElementById('closeSuccessModal');
+  const loginBtn = modal.querySelector('.modal-btn');
+
+  modal.classList.remove('hidden');
+
+  closeBtn?.addEventListener('click', () => modal.classList.add('hidden'));
+  loginBtn?.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    window.location.hash = '#/login';
+  });
+}
+
+export function showErrorModal(message = 'Something went wrong.') {
+  const modal = document.getElementById('registerFailedModal');
+  const closeBtn = document.getElementById('closeFailedModal');
+  const tryAgainBtn = document.getElementById('tryAgainBtn');
+  const messageEl = document.getElementById('registerErrorMessage');
+
+  if (!modal || !messageEl) {
+    alert('Registration failed: ' + message);
+    return;
+  }
+
+  messageEl.textContent = message;
+  modal.classList.remove('hidden');
+
+  closeBtn?.addEventListener('click', () => modal.classList.add('hidden'));
+  tryAgainBtn?.addEventListener('click', () => modal.classList.add('hidden'));
+}
+
