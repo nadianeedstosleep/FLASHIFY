@@ -280,3 +280,11 @@
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(186, 86, 160, 0.3);
 }
+
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 0.5rem;
+}
+

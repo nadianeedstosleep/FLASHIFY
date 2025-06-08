@@ -4,11 +4,13 @@ import LoginPresenter from '../presenters/loginPresenter.js';
 import RegisterPresenter from '../presenters/registerPresenter.js';
 import DashboardPresenter from '../presenters/dashboardPresenter.js';
 import CollectionPresenter from '../presenters/collectionPresenter.js';
+import NotificationPresenter from '../presenters/notificationPresenter.js';
 
 export const routes = {
   '#/': LandingPresenter,  
   '#/login': LoginPresenter,
   '#/register': RegisterPresenter,
   '#/dashboard': DashboardPresenter,
-  '#/collection': CollectionPresenter
+  '#/collection': CollectionPresenter,
+  '#/notifications': NotificationPresenter
 };

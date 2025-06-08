@@ -33,13 +33,13 @@ const DashboardView = {
               <h2>Collections</h2>
               <div class="collections-cards">
                 ${collections.map(c => `
-                    <a href="#/collections/${c.id}" class="collection-item">
+                    <a href="#/collection/${c.id}" class="collection-item">
                     <image src="${c.image}" alt="${c.title}" class="collection-image" /></br>
                     ${c.title}<br/>
                     <small style="font-weight: 500; font-family: 'Hind', sans-serif;">${c.count} Flashcard</small>
                     </a>
                 `).join('')}
-                <a href="#/collections" class="collection-item text-center font-bold collection-show-all">
+                <a href="#/collection" class="collection-item text-center font-bold collection-show-all">
                   <img src="/assets/icons/add-icon.svg" alt="Add Collection" class="collection-image" />
                   </br>Show All
                 </a>

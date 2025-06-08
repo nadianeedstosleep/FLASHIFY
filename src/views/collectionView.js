@@ -46,9 +46,10 @@ const CollectionView = {
 
               <div class="modal-columns">
                 <label for="uploadInput" class="upload-area">
-                  <img src="/assets/icons/pictures-folder-icon.svg" alt="Upload Icon" />
+                  <img src="/assets/icons/pictures-folder-icon.svg" alt="Upload Icon" id="defaultIcon" />
                   <p>Choose Photo</p>
                   <input type="file" name="image" id="uploadInput" accept="image/*" />
+                  <img id="previewImage" class="preview-image hidden" />
                 </label>
 
                 <div class="form-area">
@@ -88,6 +89,29 @@ const CollectionView = {
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
         modal.classList.add('hidden');
+      });
+    }
+
+    const uploadInput = document.getElementById('uploadInput');
+    const previewImage = document.getElementById('previewImage');
+    const defaultIcon = document.getElementById('defaultIcon');
+
+    if (uploadInput && previewImage && defaultIcon) {
+      uploadInput.addEventListener('change', () => {
+        const file = uploadInput.files[0];
+        if (file && file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            previewImage.src = reader.result;
+            previewImage.classList.remove('hidden');
+            defaultIcon.classList.add('hidden');
+          };
+          reader.readAsDataURL(file);
+        } else {
+          previewImage.classList.add('hidden');
+          previewImage.src = '';
+          defaultIcon.classList.remove('hidden');
+        }
       });
     }
 
