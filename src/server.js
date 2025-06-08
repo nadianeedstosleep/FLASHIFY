@@ -11,7 +11,9 @@ const init = async () => {
   });
 
   server.route(routes);
-
+  const profileRoutes = require('./routes/profileRoutes');
+  server.route(profileRoutes);
+  
   await server.start();
   console.log('Server running on %s', server.info.uri);
 };
