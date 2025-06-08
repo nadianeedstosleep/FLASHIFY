@@ -28,29 +28,27 @@ export default function generateRegisterView() {
       </div>
     </section>
     
-    <!-- ✅ SUCCESS MODAL -->
     <div id="registerSuccessModal" class="modal hidden">
       <div class="modal-backdrop"></div>
-      <div class="modal-box">
-        <button class="modal-close" id="closeSuccessModal">&times;</button>
+      <div class="modal-box centered">
+        <button id="closeSuccessModal" class="modal-close">&times;</button>
         <img src="/assets/icons/success-icon.png" alt="Success" class="modal-icon" />
         <h2 class="modal-title">Account Created Successfully!</h2>
         <p>Now you can log in to get access to all our services!</p>
-        <a href="#/login"><button class="modal-btn">Log In</button></a>
+        <button class="modal-btn" id="goToLoginBtn">Log In</button>
       </div>
     </div>
 
-    <!-- ❌ FAILED MODAL -->
     <div id="registerFailedModal" class="modal hidden">
-      <div class="modal-backdrop"></div>
-      <div class="modal-box">
-        <button class="modal-close" id="closeFailedModal">&times;</button>
-        <img src="/assets/icons/failed-icon.png" alt="Failed" class="modal-icon" />
-        <h2 class="modal-title">Account Failed to Create!</h2>
-        <p id="registerErrorMessage">*error message*</p>
-        <button class="modal-btn" id="tryAgainBtn">Try Again</button>
-      </div>
+    <div class="modal-backdrop"></div>
+    <div class="modal-box centered">
+      <button id="closeFailedModal" class="modal-close">&times;</button>
+      <img src="/assets/icons/failed-icon.png" alt="Failed" class="modal-icon" />
+      <h2 class="modal-title">Account Failed to Create!</h2>
+      <p id="registerErrorMessage">*error message*</p>
+      <button class="modal-btn" id="tryAgainBtn">Try Again</button>
     </div>
+  </div>
 
   `;
 }

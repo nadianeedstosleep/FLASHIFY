@@ -144,8 +144,7 @@ button {
   width: auto;
 }
 
-/* === Pop up === */
-/* === Modal Base === */
+/* === Modal Container === */
 .modal {
   position: fixed;
   top: 0;
@@ -166,7 +165,7 @@ button {
   width: 100%;
   height: 100%;
   background-color: rgba(15, 15, 15, 0.75);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(5px);
   z-index: 0;
 }
 
@@ -176,52 +175,12 @@ button {
   z-index: 1;
   background-color: #EEF1FD;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   text-align: center;
-  max-width: 420px;
+  max-width: 500px;
   width: 90%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   font-family: 'Hind', sans-serif;
-}
-
-/* === Icon === */
-.modal-icon {
-  width: 120px;
-  height: auto;
-  margin-bottom: 1.5rem;
-}
-
-/* === Title === */
-.modal-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1F0D68;
-  margin-bottom: 0.75rem;
-}
-
-/* === Paragraph === */
-.modal-box p {
-  color: #1F0D68;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-/* === Buttons === */
-.modal-btn {
-  padding: 0.6rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, #B85FBF, #DAAAD6);
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.modal-btn:hover {
-  opacity: 0.9;
 }
 
 /* === Close Button === */
@@ -236,8 +195,65 @@ button {
   cursor: pointer;
 }
 
-/* === Hidden Utility === */
+.modal-box.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2rem;
+  max-width: 450px;
+  width: 100%;
+  background-color: #EEF1FD;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.modal-box.centered h2,
+.modal-box.centered p,
+.modal-box.centered img {
+  margin: 0.5rem 0; 
+}
+
+.modal-icon {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.modal-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1F0D68;
+}
+
+.modal-box p {
+  font-size: 1rem;
+  color: #1F0D68;
+}
+
+.modal-btn {
+  padding: 0.6rem 2rem;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(to right, #B85FBF, #DAAAD6);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Hind', sans-serif;
+  transition: 0.2s ease-in-out;
+  display: block;
+  margin: 1rem auto;
+}
+
+.modal-btn:hover {
+  opacity: 0.9;
+}
+
+/* === Hidden utility === */
 .hidden {
   display: none !important;
 }
+
 

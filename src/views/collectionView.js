@@ -37,6 +37,33 @@ const CollectionView = {
             `).join('')}
             </div>
 
+            <!-- Modal Pop-Up -->
+            <div id="addCollectionModal" class="modal hidden">
+            <div class="modal-box">
+              <button class="modal-close" id="closeCollectionModal">&times;</button>
+
+              <h2 class="modal-title">Collection Details</h2>
+
+              <div class="modal-columns">
+                <label for="uploadInput" class="upload-area">
+                  <img src="/assets/icons/pictures-folder-icon.svg" alt="Upload Icon" />
+                  <p>Choose Photo</p>
+                  <input type="file" name="image" id="uploadInput" accept="image/*" />
+                </label>
+
+                <div class="form-area">
+                  <label for="title">Name</label>
+                  <input type="text" name="title" placeholder="Add a name" required />
+
+                  <label for="description">Description</label>
+                  <textarea name="description" rows="3" placeholder="Add an optional description"></textarea>
+
+                </div>
+              </div>
+              <button type="submit" class="modal-btn">Add Collection</button>
+            </div>
+          </div>
+
           </main>
         </div>
       </div>
@@ -46,6 +73,35 @@ const CollectionView = {
   afterRender() {
     Sidebar.afterRender();
     Header.afterRender();
+
+    const addBtn = document.querySelector('.add-btn');
+    const modal = document.getElementById('addCollectionModal');
+    const closeBtn = document.getElementById('closeCollectionModal');
+    const submitBtn = document.getElementById('submitCollection');
+
+    if (addBtn) {
+      addBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        const title = document.getElementById('collectionTitle').value;
+        const desc = document.getElementById('collectionDesc').value;
+        const file = document.getElementById('uploadInput').files[0];
+
+        console.log('Submitted:', { title, desc, file });
+        alert('Collection submitted (simulasi, belum kirim ke backend)!');
+        modal.classList.add('hidden');
+      });
+    }
   }
 };
 
