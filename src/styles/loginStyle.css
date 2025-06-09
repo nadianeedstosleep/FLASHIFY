@@ -138,4 +138,117 @@ button {
   width: auto;
 }
 
+/* === Responsive Styles === */
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+    overflow-y: auto;
+  }
+  body {
+    display: block;
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .login-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .login-illustration {
+    flex: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  .login-illustration img {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .login-form-wrapper {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    padding-top: 1rem;
+  }
+
+  .login-form-wrapper h1 {
+    font-size: 2rem;
+  }
+
+  .login-form-wrapper p {
+    font-size: 1rem;
+  }
+
+  .login-form input {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .login-form button {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    height: auto;
+    overflow-y: auto;
+  }
+  body {
+    display: block;
+    min-height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .login-container {
+    padding: 0.5rem;
+  }
+
+  .login-illustration {
+    max-width: 150px;
+    margin: 1.5rem auto 0 auto;
+  }
+
+  .login-illustration img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .login-form-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .login-form-wrapper h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-form-wrapper p {
+    font-size: 0.9rem;
+  }
+
+  .login-form input {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .login-form button {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .logo-wrapper {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .logo-wrapper .logo {
+    height: 18px;
+  }
+}
+
 
