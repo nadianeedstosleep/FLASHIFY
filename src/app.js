@@ -9,11 +9,25 @@ export default class App {
   }
 
   async setPresenter(Presenter) {
-    this.presenter = new Presenter(this.rootElement);  
-    const view = await this.presenter.render(); 
+    const hash = window.location.hash;
+    const match = hash.match(/#\/collection\/(\d+)/);
+
+    let presenterInstance;
+
+    if (match && Presenter.routeParams) {
+      const id = Presenter.routeParams.id;
+      presenterInstance = new Presenter(this.rootElement, { id });
+      delete Presenter.routeParams; 
+    } else {
+      presenterInstance = new Presenter(this.rootElement);
+    }
+
+    this.presenter = presenterInstance;
+
+    const view = await this.presenter.render();
     this.rootElement.innerHTML = view;
     if (this.presenter.afterRender) {
-      await this.presenter.afterRender();  
+      await this.presenter.afterRender();
     }
   }
 }

@@ -1,5 +1,5 @@
-import { routes } from './routes/routes.js';   
-import App from './app.js';              
+import { routes, dynamicRoutes } from './routes/routes.js';
+import App from './app.js';
 import './styles/main.css';
 
 const app = new App();
@@ -8,21 +8,24 @@ const routeHandler = (route) => {
   console.log('Route changed to:', route);
 
   if (routes[route]) {
-    console.log('Rendering presenter for route:', route);
+    console.log('Rendering static presenter for route:', route);
     app.setPresenter(routes[route]);
     return;
   }
 
-  const collectionDetailRegex = /^#\/collection\/(\d+)$/;
-  const match = route.match(collectionDetailRegex);
+  for (const dynamicRoute of dynamicRoutes) {
+    const match = route.match(dynamicRoute.pattern);
+    if (match) {
+      const params = {};
+      dynamicRoute.paramKeys.forEach((key, index) => {
+        params[key] = match[index + 1];
+      });
 
-  if (match) {
-    const id = match[1];
-    const Presenter = routes['#/collection/:id'];
+      const Presenter = dynamicRoute.presenter;
+      Presenter.routeParams = params;
 
-    if (Presenter) {
-      console.log(`Rendering DetailCollectionPresenter for ID: ${id}`);
-      app.setPresenter(() => new Presenter(document.getElementById('app'), { id }));
+      console.log(`Rendering dynamic presenter with params:`, params);
+      app.setPresenter(Presenter);
       return;
     }
   }

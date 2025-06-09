@@ -40,13 +40,14 @@
 
 .collection-toolbar {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  margin: 2rem auto 1.5rem auto;
+  margin-bottom: 1.5rem;
   margin-top: 2rem;
-  flex-wrap: wrap;
   width: 100%;
-  max-width:100%;
+  max-width: 600px;
 }
 
 .collection-controls {
@@ -72,6 +73,8 @@
   cursor: pointer;
   font-family: 'hind', sans-serif;
   transition: background 0.2s ease;
+  width: 100%;
+  max-width: 180px;
 }
 
 .search-wrapper {
@@ -115,14 +118,8 @@
   right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #888;
+  color: #b6a5d4;
   pointer-events: none;
-}
-
-.filter-icon {
-  padding: 0.2rem;
-  border-radius: 8px;
-  font-size: 1.2rem;
 }
 
 .collection-grid {
@@ -144,7 +141,6 @@
   font-weight: 600;
   transition: transform 0.2s ease;
 }
-
 
 .collection-card:hover {
   transform: translateY(-4px);

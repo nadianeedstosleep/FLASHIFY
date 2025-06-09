@@ -21,8 +21,6 @@ const CollectionView = {
                 <input type="text" class="search-bar" placeholder="Search Collections" />
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
               </div>
-
-              <i class="fa-solid fa-filter filter-icon"></i>
             </div>
             
             <div class="collection-grid">
