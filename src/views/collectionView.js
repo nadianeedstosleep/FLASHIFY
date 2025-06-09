@@ -27,7 +27,7 @@ const CollectionView = {
             
             <div class="collection-grid">
             ${collections.map(c => `
-                <a href="#/collections/${c.id}" class="collection-card-link">
+                <a href="#/collection/${c.id}" class="collection-card-link">
                 <div class="collection-card">
                     <img src="${c.image}" alt="${c.title}" />
                     <h3 class="collection-card-title">${c.title}</h3>

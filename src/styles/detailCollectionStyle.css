@@ -1,0 +1,80 @@
+/* === Collection Detail Page === */
+
+.detail-collection-page {
+  padding: 2rem;
+  font-family: 'Hind', sans-serif;
+  color: white;
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.detail-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.detail-header p {
+  font-size: 0.875rem;
+  color: #D0C9F3;
+  margin-top: 0.5rem;
+}
+
+.collection-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar-container {
+  position: relative;
+  width: 40%;
+}
+
+.search-bar-container input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #4A3583;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.search-bar-container input::placeholder {
+  color: #B8A9E0;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+}
+
+.filter-icon {
+  background-color: #4A3583;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-icon img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
