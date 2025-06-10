@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload PDF</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Upload PDF untuk Diubah Menjadi Flashcard</h1>
+
+    <form id="upload-form">
+      <input
+        type="file"
+        id="pdfFile"
+        name="file"
+        accept="application/pdf"
+        required
+      />
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="loading" class="hidden">⏳ Sedang memproses file...</div>
+    <div id="result" class="hidden">
+      ✅ Flashcard berhasil dibuat!<br />
+      <button id="viewBtn">Lihat Flashcard</button>
+    </div>
+
+    <script>
+      const form = document.getElementById("upload-form");
+      const loading = document.getElementById("loading");
+      const result = document.getElementById("result");
+      const viewBtn = document.getElementById("viewBtn");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const file = document.getElementById("pdfFile").files[0];
+        const formData = new FormData();
+        formData.append("file", file);
+
+        loading.classList.remove("hidden");
+        result.classList.add("hidden");
+
+        const res = await fetch("/upload-pdf", {
+          method: "POST",
+          body: formData,
+        });
+
+        const json = await res.json();
+        loading.classList.add("hidden");
+        result.classList.remove("hidden");
+
+        viewBtn.onclick = () => {
+          window.location.href = `/viewer?filename=${encodeURIComponent(
+            json.filename
+          )}`;
+        };
+      });
+    </script>
+  </body>
+</html>

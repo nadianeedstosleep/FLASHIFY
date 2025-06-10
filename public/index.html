@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flashify - Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Hind", sans-serif;
+        background-color: #1f0d68;
+        color: white;
+        padding: 2rem;
+      }
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .upload-box {
+        background-color: #48388e;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      input[type="file"] {
+        margin-top: 1rem;
+      }
+      .collections {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .card {
+        background-color: #b85fbf;
+        border-radius: 12px;
+        padding: 1.2rem;
+        flex: 1 1 200px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .card:hover {
+        background-color: #daaad6;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📚 Flashcard Generator</h1>
+
+    <div class="upload-box">
+      <h3>Unggah file PDF kamu</h3>
+      <form id="uploadForm">
+        <input type="file" id="pdfFile" accept="application/pdf" required />
+        <br /><br />
+        <button type="submit">Generate Flashcard</button>
+      </form>
+      <div id="statusBox" style="margin-top: 1rem"></div>
+    </div>
+
+    <h2>Koleksi Flashcard</h2>
+    <div class="collections" id="collectionList"></div>
+
+    <script>
+      async function loadCollections() {
+        const res = await fetch("/flashcard-collections");
+        const data = await res.json();
+        const container = document.getElementById("collectionList");
+        container.innerHTML = "";
+
+        // Hapus koleksi duplikat dengan Set
+        const unique = [...new Set(data)];
+
+        unique.forEach((name) => {
+          const div = document.createElement("div");
+          div.className = "card";
+          div.innerHTML = `
+        <strong>${name}</strong><br>
+        <small>📘 <a style="color:white" href="/viewer.html?collection=${encodeURIComponent(
+          name
+        )}">Buka</a></small>
+      `;
+          container.appendChild(div);
+        });
+      }
+
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const fileInput = document.getElementById("pdfFile");
+          const file = fileInput.files[0];
+          const formData = new FormData();
+          formData.append("file", file);
+
+          const statusBox = document.getElementById("statusBox");
+          statusBox.innerText = "⏳ Memproses PDF...";
+
+          const res = await fetch("/upload-pdf", {
+            method: "POST",
+            body: formData,
+          });
+
+          const json = await res.json();
+          if (json.status === "success") {
+            statusBox.innerHTML = `✅ Koleksi berhasil dibuat: <a href="/viewer.html?collection=${json.collection}">${json.collection}</a>`;
+            loadCollections(); // update daftar
+          } else {
+            statusBox.innerText = "❌ Gagal mengunggah PDF";
+          }
+
+          fileInput.value = ""; // reset input
+        });
+
+      loadCollections();
+    </script>
+  </body>
+</html>

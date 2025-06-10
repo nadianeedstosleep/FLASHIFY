@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Riwayat Penggunaan</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        background-color: #1f0d68;
+        color: white;
+        font-family: "Hind", sans-serif;
+        padding: 2rem;
+      }
+      h1 {
+        font-family: "Montserrat", sans-serif;
+      }
+      .history-item {
+        background: #48388e;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .history-item strong {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+      canvas {
+        margin-top: 2rem;
+        background: #eef1fd;
+        padding: 1rem;
+        border-radius: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📊 Riwayat Penggunaan & Statistik</h1>
+    <div id="historyContainer"></div>
+    <canvas id="chartScore" width="600" height="300"></canvas>
+
+    <script>
+      async function loadHistory() {
+        const res = await fetch("/history");
+        const data = await res.json();
+        const container = document.getElementById("historyContainer");
+
+        const labels = [];
+        const scores = [];
+
+        data.forEach((entry) => {
+          const div = document.createElement("div");
+          div.className = "history-item";
+          div.innerHTML = `
+          <strong>${entry.collection}</strong>
+          Skor: ${entry.score}/${entry.total} |
+          Akurasi: ${entry.accuracy}% |
+          Waktu: ${entry.time_taken}
+        `;
+          container.appendChild(div);
+
+          labels.push(entry.collection);
+          scores.push(entry.score);
+        });
+
+        renderChart(labels, scores);
+      }
+
+      function renderChart(labels, scores) {
+        const ctx = document.getElementById("chartScore").getContext("2d");
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels,
+            datasets: [
+              {
+                label: "Skor Pengguna",
+                data: scores,
+                backgroundColor: "#DAAAD6",
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: { beginAtZero: true, max: 10 },
+            },
+            plugins: {
+              legend: { display: false },
+            },
+          },
+        });
+      }
+
+      loadHistory();
+    </script>
+  </body>
+</html>

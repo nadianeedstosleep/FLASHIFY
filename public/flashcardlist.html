@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daftar Koleksi Flashcard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #1f0d68;
+        color: white;
+        font-family: "Hind", sans-serif;
+        padding: 2rem;
+      }
+      h1 {
+        font-family: "Montserrat", sans-serif;
+      }
+      .collections {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .card {
+        background-color: #b85fbf;
+        border-radius: 12px;
+        padding: 1.5rem;
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition: 0.2s;
+      }
+      .card h3 {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+      }
+      .card p {
+        font-size: 0.85rem;
+        color: #f0f0f0;
+        margin: 0;
+      }
+      .card button {
+        padding: 0.6rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .btn-view {
+        background-color: #daaad6;
+        color: #1f0d68;
+      }
+      .btn-edit {
+        background-color: #eef1fd;
+        color: #1f0d68;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📚 Koleksi Flashcards</h1>
+    <div class="collections" id="collectionList"></div>
+
+    <script>
+      async function loadCollections() {
+        const res = await fetch("/flashcard-collections");
+        const data = await res.json();
+
+        const container = document.getElementById("collectionList");
+        container.innerHTML = "";
+
+        for (const name of data) {
+          // Ambil metadata dari flashcards
+          const res = await fetch(`/flashcards/${name}`);
+          const docs = await res.json();
+          const meta = docs.find((d) => d.meta)?.meta || {};
+          const count = docs.length;
+
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+          <h3>${meta.name || name}</h3>
+          <p>${meta.description || "(Tidak ada deskripsi)"}</p>
+          <p>Jumlah: ${count} kartu</p>
+          <button class="btn-view" onclick="location.href='/viewer.html?collection=${name}'">📖 Lihat</button>
+          <button class="btn-edit" onclick="location.href='/edit-collection.html?collection=${name}'">✏️ Edit</button>
+        `;
+          container.appendChild(card);
+        }
+      }
+
+      loadCollections();
+    </script>
+  </body>
+</html>

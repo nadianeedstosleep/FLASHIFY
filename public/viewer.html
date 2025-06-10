@@ -1,0 +1,165 @@
+<!-- viewer.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flashcard Viewer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #1f0d68;
+        color: white;
+        font-family: "Hind", sans-serif;
+        padding: 2rem;
+      }
+      h1 {
+        font-family: "Montserrat", sans-serif;
+      }
+      .card {
+        background: #48388e;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .question {
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .option {
+        background: #daaad6;
+        border: none;
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        margin: 0.5rem 0;
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+      }
+      .option.selected {
+        background: #eef1fd;
+        color: black;
+      }
+      .submit-btn {
+        padding: 1rem 2rem;
+        background: #daaad6;
+        color: black;
+        font-weight: bold;
+        border: none;
+        border-radius: 12px;
+        margin-top: 2rem;
+        cursor: pointer;
+      }
+      .result-box {
+        background: #b85fbf;
+        padding: 1rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📖 Flashcard Quiz</h1>
+    <div id="flashcardContainer">⏳ Memuat soal...</div>
+    <div class="centered">
+      <button class="submit-btn" onclick="submitAnswers()">
+        ✅ Lihat Hasil
+      </button>
+    </div>
+    <div id="resultBox" class="result-box" style="display: none"></div>
+
+    <script>
+      console.log("🔍 Viewer loaded...");
+      let questions = [];
+      const userAnswers = [];
+
+      async function loadFlashcards() {
+        const params = new URLSearchParams(window.location.search);
+        const collection = params.get("collection");
+        const container = document.getElementById("flashcardContainer");
+
+        console.log("📦 Koleksi:", collection);
+        container.innerHTML = "<p>⏳ Memuat soal...</p>";
+
+        if (!collection) {
+          container.innerHTML =
+            "<p>⚠️ Nama koleksi tidak ditemukan di URL.</p>";
+          return;
+        }
+
+        try {
+          const res = await fetch(`/flashcards/${collection}`);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+
+          console.log("📚 Data dari server:", data); // Log data yang diterima
+
+          // Menyesuaikan format data yang diterima
+          const flashcardsData = data.map((item) => item.flashcards).flat();
+
+          console.log("✅ Total soal ditemukan:", flashcardsData.length);
+
+          container.innerHTML = "";
+
+          if (!flashcardsData.length) {
+            container.innerHTML = "<p>❌ Tidak ada flashcard ditemukan.</p>";
+            return;
+          }
+
+          flashcardsData.forEach((q, index) => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <div class="question">Soal ${index + 1}: ${q.question}</div>
+                ${q.options
+                  .map(
+                    (opt) =>
+                      ` <button class="option" onclick="selectAnswer(${index}, this, '${opt}')">${opt}</button>`
+                  )
+                  .join("")}
+            `;
+            container.appendChild(card);
+          });
+        } catch (err) {
+          console.error("❌ Gagal mengambil atau memproses flashcard:", err);
+          container.innerHTML =
+            "<p>⚠️ Gagal memuat flashcard. Pastikan nama koleksi valid dan data tersedia.</p>";
+        }
+      }
+
+      function selectAnswer(index, btn, selected) {
+        const allButtons = btn.parentElement.querySelectorAll(".option");
+        allButtons.forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+
+        userAnswers[index] = {
+          selected,
+          correct: questions[index].answer,
+        };
+      }
+
+      function submitAnswers() {
+        let correctCount = 0;
+        const summary = userAnswers.map((ans, i) => {
+          const isCorrect = ans?.selected === ans?.correct;
+          if (isCorrect) correctCount++;
+          return `Soal ${i + 1}: ${isCorrect ? "✅" : "❌"} (${
+            ans?.selected || "?"
+          } vs ${ans?.correct})`;
+        });
+
+        const resultBox = document.getElementById("resultBox");
+        resultBox.innerHTML = `
+          <h2>🎉 Skor Anda: ${correctCount}/${questions.length}</h2>
+          <ul><li>${summary.join("</li><li>")}</li></ul>
+        `;
+        resultBox.style.display = "block";
+      }
+
+      loadFlashcards();
+    </script>
+  </body>
+</html>

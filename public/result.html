@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hasil Quiz</title>
+  </head>
+  <body>
+    <h1>Hasil Flashcard Quiz</h1>
+    <div id="resultContainer"></div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const score = params.get("score");
+      const total = params.get("total");
+      const details = JSON.parse(decodeURIComponent(params.get("details")));
+
+      document.getElementById("resultContainer").innerHTML = `
+      <h2>Skor Akhir: ${score}/${total}</h2>
+      <ul>
+        ${details
+          .map(
+            (d, i) =>
+              `<li>Soal ${i + 1}: ${d.selected === d.correct ? "✅" : "❌"} (${
+                d.selected
+              } vs ${d.correct})</li>`
+          )
+          .join("")}
+      </ul>
+      <br>
+      <a href="/flashcard-list">🔙 Kembali ke Daftar</a>
+    `;
+    </script>
+  </body>
+</html>

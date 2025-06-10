@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Koleksi</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #1f0d68;
+        color: white;
+        font-family: "Hind", sans-serif;
+        padding: 2rem;
+      }
+      h1 {
+        font-family: "Montserrat", sans-serif;
+      }
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: none;
+        font-size: 1rem;
+      }
+      .switch {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      button {
+        padding: 1rem 2rem;
+        background: #daaad6;
+        color: black;
+        border: none;
+        border-radius: 12px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .status {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📝 Edit Koleksi Flashcard</h1>
+    <div class="form-group">
+      <label for="desc">Deskripsi Koleksi</label>
+      <textarea id="desc" rows="4"></textarea>
+    </div>
+    <div class="switch">
+      <label for="publicToggle">Publik?</label>
+      <input type="checkbox" id="publicToggle" />
+    </div>
+    <button onclick="saveChanges()">💾 Simpan Perubahan</button>
+    <div class="status" id="statusBox"></div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("collection");
+
+      async function loadMeta() {
+        const res = await fetch(`/flashcards/${name}`);
+        const data = await res.json();
+
+        const meta = data.find((d) => d.meta)?.meta;
+        if (meta) {
+          document.getElementById("desc").value = meta.description || "";
+          document.getElementById("publicToggle").checked = meta.is_public;
+        }
+      }
+
+      async function saveChanges() {
+        const description = document.getElementById("desc").value;
+        const is_public = document.getElementById("publicToggle").checked;
+
+        const res = await fetch(`/update-collection/${name}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ description, is_public }),
+        });
+
+        const json = await res.json();
+        const box = document.getElementById("statusBox");
+        box.innerText = json.updated
+          ? "✅ Koleksi berhasil diperbarui!"
+          : "❌ Gagal memperbarui.";
+      }
+
+      loadMeta();
+    </script>
+  </body>
+</html>
