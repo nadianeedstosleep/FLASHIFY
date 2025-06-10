@@ -1,0 +1,114 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1F0D68;
+  padding: 0.75rem 1.5rem;
+  color: white;
+}
+
+.header-logo img {
+  height: 30px;
+}
+
+.header-search {
+  flex: 1;
+  margin: 0 1.5rem;
+  position: relative;
+}
+
+.header-search input{
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  background-color: #48388E;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  font-family: 'Hind', sans-serif;
+}
+
+.header-search input::placeholder {
+  color: #a287c8;
+}
+
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  opacity: 0.8;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notif-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.notif-button img {
+  height: 25px;
+}
+
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-button img.avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.dropdown-icon {
+  height: 8px;
+  margin-left: 0.3rem;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+  background-color: white;
+  font-family: 'Hind', sans-serif;
+  color: #1F0D68;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.profile-dropdown a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Hind', sans-serif;
+}
+
+.profile-dropdown a:hover {
+  background-color: #EEF1FD;
+}
+
+.hidden {
+  display: none;
+}

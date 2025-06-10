@@ -1,0 +1,241 @@
+.detail-collection-page {
+  padding: 2rem;
+  font-family: 'Hind', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.detail-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.detail-header .description {
+  font-size: 0.875rem;
+  color: #D0C9F3;
+  margin-top: 0.25rem;
+}
+
+.collection-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-bar-container {
+  position: relative;
+  flex: 1;
+}
+
+.search-bar-container input {
+  width: 100%;
+  padding: 0.75rem 2.75rem 0.75rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #4A3583;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.search-bar-container input::placeholder {
+  color: #B8A9E0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 1.2rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.filter-icon {
+  background-color: #4A3583;
+  border: none;
+  border-radius: 8px;
+  padding: 1.4rem 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.flashcard-list {
+  width: 100%;
+  text-align: center;
+}
+
+.settings-container {
+  position: relative;
+}
+
+#settings-btn {
+  background-color: #4A3583; /* dark purple */
+  color: white;
+  border: none;
+  border-radius: 12px; /* rounded edges */
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: background-color 0.2s ease;
+}
+
+#settings-btn:hover {
+  background-color: #4A3583;
+}
+
+#settings-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  z-index: 10;
+}
+
+#settings-dropdown button {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#settings-dropdown button:hover {
+  background-color: #f5f5f5;
+}
+
+#settings-dropdown button.danger {
+  color: #d32f2f; 
+  font-weight: 600;
+}
+
+#settings-dropdown button.danger:hover {
+  background-color: #fdecea; 
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #f1f3ff;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #1b134b;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1b134b;
+  font-weight: 700;
+  text-align: center;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-photo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1b134b;
+  border: 2px dashed #a8a4d6;
+  border-radius: 8px;
+  padding: 12px;
+  justify-content: center;
+}
+
+.edit-photo i {
+  font-size: 20px;
+}
+
+.modal-content label {
+  font-weight: 600;
+  color: #1b134b;
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 20px;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #a8a4d6;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.update-btn {
+  display: block;
+  margin: 20px auto 0 auto; /* top right bottom left */
+  background-color: #b15edb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-btn:hover {
+  background-color: #a24dc8;
+}
+
