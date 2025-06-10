@@ -109,3 +109,15 @@
 .save-btn:hover {
   opacity: 0.9;
 }
+
+@media (max-width: 768px) {
+  .edit-profile-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+    max-width: 400px;
+  }
+}

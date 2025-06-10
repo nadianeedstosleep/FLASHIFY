@@ -283,3 +283,44 @@
   margin-top: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  .collection-grid {
+    gap: 0.8rem;
+  }
+
+  .add-btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .search-bar::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 0.4rem 1rem;
+  }
+
+  .modal-box {
+    width: 90%;
+    padding: 0.5rem;
+  }
+
+  .modal-title {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .modal-columns {
+    flex-direction: column;
+  }
+
+  .modal-columns{
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+

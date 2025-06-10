@@ -82,24 +82,22 @@ const Sidebar = {
       localStorage.setItem('sidebarOpen', String(!isExpanded));
       document.dispatchEvent(new Event('sidebarToggled'));
 
-      // Toggle overlay visibility
+      document.querySelectorAll('.sidebar-label').forEach(label => {
+        if (!isExpanded) {
+          label.classList.remove('collapsed');
+        } else {
+          label.classList.add('collapsed');
+        }
+      });
+
       if (!isExpanded) {
         overlay.classList.add('active');
-        toggleBtn.style.left = '250px'; // Move toggle button right when sidebar open
+        toggleBtn.style.left = '250px'; 
       } else {
         overlay.classList.remove('active');
-        toggleBtn.style.left = '1rem'; // Reset toggle button position when sidebar closed
+        toggleBtn.style.left = '1rem'; 
       }
     });
-
-    // Force sidebar expanded on small devices for testing
-    if (window.innerWidth < 768) {
-      sidebar.classList.add('expanded');
-      sidebar.classList.remove('collapsed');
-      logo.classList.add('expanded');
-      logo.classList.remove('collapsed');
-      overlay.classList.add('active');
-    }
 
     // Close sidebar when clicking on overlay
     overlay.addEventListener('click', () => {
@@ -111,6 +109,7 @@ const Sidebar = {
       overlay.classList.remove('active');
       document.dispatchEvent(new Event('sidebarToggled'));
     });
+
   }
 };
 

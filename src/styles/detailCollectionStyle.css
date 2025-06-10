@@ -1,3 +1,9 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .detail-collection-page {
   padding: 2rem;
   font-family: 'Hind', sans-serif;
@@ -154,6 +160,7 @@
 }
 
 .modal-content {
+  position: relative;
   background-color: #f1f3ff;
   border-radius: 12px;
   padding: 32px;
@@ -237,5 +244,25 @@
 
 .update-btn:hover {
   background-color: #a24dc8;
+}
+
+@media (max-width: 768px) {
+  .detail-collection-page {
+    padding: 1rem;
+  }
+
+  .detail-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .collection-toolbar {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .modal-content {
+    padding: 24px;
+  }
+
 }
 
