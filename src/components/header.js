@@ -8,7 +8,8 @@ const Header = {
     return `
     <header class="app-header">
         <div class="header-logo">
-        <img src="/assets/icons/flashify-logo.svg" alt="Flashify Logo" class="logo" />
+          <button id="burgerMenuBtn" class="burger-menu-btn" aria-label="Toggle sidebar">&#9776;</button>
+          <img src="/assets/icons/flashify-logo.svg" alt="Flashify Logo" class="logo" />
         </div>
 
         <div class="header-search">
@@ -41,6 +42,9 @@ const Header = {
     const dropdown = document.getElementById('profileDropdown');
     const logoutLink = document.getElementById('logoutLink');
     const profileLink = document.getElementById('profileLink');
+    const burgerMenuBtn = document.getElementById('burgerMenuBtn');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
 
     if (!profileBtn || !dropdown || !logoutLink || !profileLink) {
       console.warn('Some header elements not found in DOM');
@@ -68,6 +72,25 @@ const Header = {
       e.preventDefault();
       window.location.hash = '#/profile';
     });
+
+    if (burgerMenuBtn && sidebar && overlay) {
+      burgerMenuBtn.addEventListener('click', () => {
+        const isExpanded = sidebar.classList.contains('expanded');
+        sidebar.classList.toggle('expanded', !isExpanded);
+        sidebar.classList.toggle('collapsed', isExpanded);
+        if (!isExpanded) {
+          overlay.classList.add('active');
+        } else {
+          overlay.classList.remove('active');
+        }
+      });
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.remove('expanded');
+        sidebar.classList.add('collapsed');
+        overlay.classList.remove('active');
+      });
+    }
   }
 };
 

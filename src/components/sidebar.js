@@ -57,6 +57,14 @@ const Sidebar = {
       return;
     }
 
+    // Create overlay element for small screen sidebar
+    let overlay = document.querySelector('.sidebar-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.classList.add('sidebar-overlay');
+      document.body.appendChild(overlay);
+    }
+
     const logo = sidebar.querySelector('.sidebar-logo');
     if (!logo) {
       console.warn('[Sidebar] Logo not found inside sidebar.');
@@ -64,12 +72,43 @@ const Sidebar = {
     }
 
     toggleBtn.addEventListener('click', () => {
+      console.log('Sidebar toggle clicked');
       const isExpanded = sidebar.classList.contains('expanded');
+      console.log('Sidebar isExpanded:', isExpanded);
       sidebar.classList.toggle('expanded', !isExpanded);
       sidebar.classList.toggle('collapsed', isExpanded);
       logo.classList.toggle('expanded', !isExpanded);
       logo.classList.toggle('collapsed', isExpanded);
       localStorage.setItem('sidebarOpen', String(!isExpanded));
+      document.dispatchEvent(new Event('sidebarToggled'));
+
+      // Toggle overlay visibility
+      if (!isExpanded) {
+        overlay.classList.add('active');
+        toggleBtn.style.left = '250px'; // Move toggle button right when sidebar open
+      } else {
+        overlay.classList.remove('active');
+        toggleBtn.style.left = '1rem'; // Reset toggle button position when sidebar closed
+      }
+    });
+
+    // Force sidebar expanded on small devices for testing
+    if (window.innerWidth < 768) {
+      sidebar.classList.add('expanded');
+      sidebar.classList.remove('collapsed');
+      logo.classList.add('expanded');
+      logo.classList.remove('collapsed');
+      overlay.classList.add('active');
+    }
+
+    // Close sidebar when clicking on overlay
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('expanded');
+      sidebar.classList.add('collapsed');
+      logo.classList.remove('expanded');
+      logo.classList.add('collapsed');
+      localStorage.setItem('sidebarOpen', 'false');
+      overlay.classList.remove('active');
       document.dispatchEvent(new Event('sidebarToggled'));
     });
   }
