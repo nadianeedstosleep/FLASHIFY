@@ -214,10 +214,21 @@ const DashboardView = {
     });
 
     submitBtn.addEventListener('click', () => {
-        const type = document.querySelector('input[name="questionType"]:checked')?.value || '';
-        const total = parseInt(document.getElementById('questionLimit').value);
-        console.log({ type, total, tags });
+      const totalCards = parseInt(document.getElementById('questionLimit').value);
+      const questionType = document.querySelector('input[name="questionType"]:checked')?.value;
+
+      if (totalCards > 0) {
+        localStorage.setItem('flashcardCategories', JSON.stringify(tags));
+        localStorage.setItem('flashcardType', questionType); // simpan jenis soal juga
+
+        // ✅ Routing berdasarkan tipe soal
+        const route = questionType === 'multiple-choice'
+          ? `#/multiple-choice/${totalCards}`
+          : `#/flashcard/${totalCards}`;
+
+        window.location.hash = route;
         modal.classList.add('hidden');
+      }
     });
 
     const typeSelect = document.querySelector('input[name="questionType"]');
@@ -229,7 +240,7 @@ const DashboardView = {
         submitBtn.disabled = !(limit >= 1);
         });
     });
-    }
+  }
 };
 
 export default DashboardView;
