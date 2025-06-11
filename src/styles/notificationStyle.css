@@ -1,0 +1,34 @@
+.notification-page {
+  padding: 2rem;
+  color: white;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.notification-card {
+  background-color: #f9f6fb;
+  color: #1F0D68;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.notification-content p {
+  margin: 0.5rem 0;
+}
+
+.see-btn {
+  background: #B85FBF;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}

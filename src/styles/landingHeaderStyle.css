@@ -1,0 +1,44 @@
+/* components/HeaderStyle.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #21096C;
+  color: #e1bde8;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header__logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  margin-left: 0;
+}
+
+.header__login-btn {
+  background: linear-gradient(to right, #ef99f7, #d58cff);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin-right: 0;
+}
+
+.header__login-btn:hover {
+  background: linear-gradient(to right, #f3b3ff, #e3a1ff);
+}
+
+body {
+  margin: 0;
+  padding-top: 72px; /* Prevent content from hiding under fixed header */
+  box-sizing: border-box;
+}
