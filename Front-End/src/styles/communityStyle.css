@@ -2,10 +2,20 @@
   padding: 1rem;
 }
 
+.filter-labels {
+  margin-bottom: 1rem; /* Add vertical spacing below label group */
+}
+
+.community-section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem; /* Add vertical spacing below "Recommended for you" */
+}
+
 .community-cards-container {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 0.5rem; /* Add vertical spacing above cards container */
 }
 
 .community-detail {
@@ -47,13 +57,13 @@
 }
 
 .user-name {
-  font-size: 24px;
+  font-size: 24px; /* Reduced font size significantly */
   font-weight: 700;
   margin: 0;
 }
 
 .user-followers {
-  font-size: 14px;
+  font-size: 14px; /* Reduced font size significantly */
   color: #c9aee3;
   margin: 0;
 }
@@ -73,14 +83,7 @@
   background-color: #a03db8;
 }
 
-.card-preview {
-  background-color: #36154e;
-  border: 1px solid #7038a1;
-  border-radius: 16px;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* Removed card-preview styles from communityStyle.css to cardPreviewStyles.css */
 
 .card-header {
   display: flex;
@@ -194,21 +197,7 @@
   align-items: center;
 }
 
-.card-footer {
-  margin-top: 20px;
-  border-top: 2px solid #7038a1;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 14px;
-  color: #c9aee3;
-  background-color: #2a1a4d;
-  border-radius: 0 0 16px 16px;
-  max-width: 860px;
-  margin: 0 auto;
-}
+/* Removed card-footer styles from communityStyle.css to refactor into cardStyle.css */
 
 .stats span {
   margin-right: 20px;

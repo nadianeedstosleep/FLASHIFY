@@ -3,7 +3,6 @@ import '../styles/cardPreviewStyles.css';
 import generateCommunityView from '../views/communityView.js';
 import CommunityModel from '../models/communityModel.js';
 import { createCard } from '../components/card.js';
-import { createCardPreviewComponent } from '../components/cardPreview.js';
 import Sidebar from '../components/sidebar.js';
 import Header from '../components/header.js';
 import { renderLabelGroup } from '../components/label.js';
@@ -17,6 +16,7 @@ export default class CommunityPresenter {
   }
 
   async render() {
+    console.log('CommunityPresenter render started');
     this.rootElement.innerHTML = `
       <div class="dashboard-container">
         ${Sidebar.render(true)}
@@ -31,15 +31,22 @@ export default class CommunityPresenter {
     Header.afterRender();
 
     await this.model.fetchCards();
+    console.log('Cards fetched:', this.model.getCards());
     this.renderCommunityCards();
     this.renderLabels();
   }
 
   renderCommunityCards() {
+    console.log('Rendering community cards');
     const container = this.rootElement.querySelector('#communityCards');
+    if (!container) {
+      console.error('Community cards container not found');
+      return;
+    }
     container.innerHTML = '';
 
     let cards = this.model.getCards();
+    console.log('Cards to render:', cards);
     if (this.activeCategory !== 'All') {
       cards = cards.filter(card => card.category === this.activeCategory);
     }
@@ -60,22 +67,12 @@ export default class CommunityPresenter {
   }
 
   async loadCardPreview(cardId) {
-    try {
-      const response = await fetch(`http://localhost:5000/cards/${cardId}`);
-      if (!response.ok) {
-        throw new Error('Failed to load card preview');
-      }
-      const data = await response.json();
-      this.showCardPreview(data);
-    } catch (err) {
-      console.error(err);
-    }
+    // Remove preview rendering from CommunityPresenter to avoid duplication
+    // The detailed preview should be handled exclusively by CommunityDetailPresenter
+    console.log('loadCardPreview called in CommunityPresenter, but preview rendering is disabled to avoid duplication.');
   }
 
   showCardPreview(data) {
-    const container = this.rootElement.querySelector('#preview-container');
-    container.innerHTML = '';
-    const cardComponent = createCardPreviewComponent(data);
-    container.appendChild(cardComponent);
+    // This method is no longer used for preview rendering in CommunityPresenter
   }
 }
