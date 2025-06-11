@@ -1,37 +1,48 @@
-export function renderLanding(landingModel, container) {
-  const main = container;
+export default class LandingView {
+  render(data) {
+    const { features, callToAction, benefits } = data;
 
-  const hero = `
-    <section class="hero" style="background-image: url('${landingModel.callToAction.backgroundImage}')">
-      <div class="hero-content">
-        <h1>${landingModel.callToAction.heading}</h1>
-        <a href="${landingModel.callToAction.buttonLink}" class="cta-button">${landingModel.callToAction.buttonText}</a>
+    return `
+      <div class="landing-container">
+        <section class="hero" style="background-image: url(${callToAction.backgroundImage});">
+          <div class="hero-content">
+            <h1>${callToAction.heading}</h1>
+            <a href="${callToAction.buttonLink}" class="cta-button">${callToAction.buttonText}</a>
+          </div>
+        </section>
+
+        <section class="features">
+          <div class="features-intro">
+            ${features.map(feature => `
+              <div>
+                <i class="${feature.icon} fa-2x"></i>
+                <h3>${feature.title}</h3>
+                <p>${feature.description}</p>
+              </div>
+            `).join('')}
+          </div>
+          <p style="max-width:720px;margin:2rem auto 0;font-family:Montserrat,sans-serif;font-size:1rem;color:white;">
+            We offer personalized, effective learning that fits your needs. Simply upload any PDF and transform it into interactive flashcards powered by active recall and spaced repetition, optimizing your study time for better retention and academic success.
+          </p>
+        </section>
+
+        <section class="features-details">
+          ${benefits.map(benefit => `
+            <div class="feature-item${benefit.reverse ? ' reverse' : ''}">
+              <div class="feature-item-number">${benefit.id}</div>
+              <div style="flex:1;">
+                <h4>${benefit.title}</h4>
+                <p>${benefit.text}</p>
+              </div>
+              <img src="${benefit.image}" alt="${benefit.title}" />
+            </div>
+          `).join('')}
+        </section>
       </div>
-    </section>
-  `;
+    `;
+  }
 
-  const features = `
-    <section class="features">
-      ${landingModel.features.map(f => `
-        <div class="feature-item">
-          <i class="${f.icon}"></i>
-          <h4>${f.title}</h4>
-          <p>${f.description}</p>
-        </div>
-      `).join('')}
-    </section>
-  `;
-
-  const benefits = landingModel.benefits.map(b => `
-    <section class="feature-item ${b.reverse ? 'reverse' : ''}">
-      <img src="${b.image}" alt="${b.title}" />
-      <div>
-        <h2>${b.id}</h2>
-        <h3>${b.title}</h3>
-        <p>${b.text}</p>
-      </div>
-    </section>
-  `).join('');
-
-  main.innerHTML = hero + features + benefits;
+  afterRender() {
+    console.log('LandingView afterRender called');
+  }
 }
