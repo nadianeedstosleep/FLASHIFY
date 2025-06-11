@@ -1,34 +1,36 @@
-import { landingModel } from '../models/landingModel.js';
-import { renderLanding } from '../views/landingView.js';
+import LandingModel from '../models/landingModel.js';
+import LandingView from '../views/landingView.js';
 import { createHeader } from '../components/landingHeader.js';
 import { createFooter } from '../components/footer.js';
 import '../styles/landingHeaderStyle.css';
 import '../styles/footerStyle.css';
 import '../styles/landingStyle.css';
-import '../../public/assets/images/landing-1.png'
 
 export default class LandingPresenter {
   constructor(rootElement) {
     this.rootElement = rootElement;
+    this.model = new LandingModel();
+    this.view = new LandingView();
   }
 
   async render() {
-    // Clear rootElement content
+    const features = this.model.getFeatures();
+    const callToAction = this.model.getCallToAction();
+    const benefits = this.model.getBenefits();
+
     this.rootElement.innerHTML = '';
 
-    // Insert landingHeader at the top of rootElement
+    // Insert header
     const header = createHeader();
     this.rootElement.appendChild(header);
 
     // Create main content container
     const mainContent = document.createElement('div');
     mainContent.id = 'main-content';
+    mainContent.innerHTML = this.view.render({ features, callToAction, benefits });
     this.rootElement.appendChild(mainContent);
 
-    // Render landing content inside mainContent
-    renderLanding(landingModel, mainContent);
-
-    // Insert footer component at the bottom of rootElement
+    // Insert footer
     const footer = createFooter();
     this.rootElement.appendChild(footer);
 
@@ -36,10 +38,6 @@ export default class LandingPresenter {
   }
 
   async afterRender() {
-    // Bind any redirects or event handlers
-    // Assuming landingView.bindRedirects exists
-    if (typeof window.landingView !== 'undefined' && typeof window.landingView.bindRedirects === 'function') {
-      window.landingView.bindRedirects();
-    }
+    this.view.afterRender();
   }
 }
