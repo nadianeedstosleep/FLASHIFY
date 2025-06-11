@@ -7,6 +7,7 @@ import FlashcardPresenter from '../presenters/flashcardPresenter.js';
 import MultipleChoicePresenter from '../presenters/multipleChoicePresenter.js';
 import CollectionPresenter from '../presenters/collectionPresenter.js';
 import NotificationPresenter from '../presenters/notificationPresenter.js';
+import HistoryPresenter from '../presenters/historyPresenter.js';
 import ProfilePresenter from '../presenters/profilePresenter.js';
 
 export const routes = {
@@ -18,5 +19,6 @@ export const routes = {
   '#/multiple-choice': MultipleChoicePresenter, 
   '#/collection': CollectionPresenter,
   '#/notifications': NotificationPresenter,
+  '#/history': HistoryPresenter,
   '#/profile': ProfilePresenter,
 };
