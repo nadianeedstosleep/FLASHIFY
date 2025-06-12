@@ -1,0 +1,972 @@
+[
+  {
+    "id": 1,
+    "title": "Methamphetamin 101",
+    "category": "Chemistry",
+    "author": "Walter White",
+    "followers": 10000,
+    "views": 10000,
+    "saved": 5000,
+    "liked": 5000,
+    "featured": "Popular, Chemistry",
+    "published": "Published 3 weeks ago",
+    "description": "Welcome to Methamphetamin 101. This flashcard set was designed to provide a foundational understanding of methamphetamine, its effects, and the challenges surrounding addiction. Our goal is to raise awareness about the dangers of methamphetamine, use educate about the short and long-term consequences, and highlight available treatment options for those who may be struggling. This set aims to inform users about the significant impact methamphetamine has on both the individual health and society as a whole. Through clear and concise information, we hope to foster a deeper understanding of the drug's addictive nature and the importance of seeking help.",
+    "subjects": ["Chemistry", "Organic Chemistry", "Drugs"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Introduction to Algebra",
+    "category": "Math",
+    "author": "Alice Johnson",
+    "followers": 8000,
+    "views": 7500,
+    "saved": 3000,
+    "liked": 3500,
+    "featured": "Popular, Math",
+    "published": "Published 2 weeks ago",
+    "description": "This set covers the basics of algebra including variables, equations, and functions.",
+    "subjects": ["Math", "Algebra"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "What is a variable in algebra?",
+        "answers": [
+          "A symbol representing a number.",
+          "A fixed number.",
+          "An operation."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "World History Overview",
+    "category": "Social Science",
+    "author": "Bob Smith",
+    "followers": 12000,
+    "views": 11000,
+    "saved": 6000,
+    "liked": 7000,
+    "featured": "Popular, History",
+    "published": "Published 1 month ago",
+    "description": "A comprehensive overview of world history from ancient to modern times.",
+    "subjects": ["History", "Social Science"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Basic French Vocabulary",
+    "category": "French",
+    "author": "Claire Dupont",
+    "followers": 5000,
+    "views": 4800,
+    "saved": 2000,
+    "liked": 2200,
+    "featured": "Language, French",
+    "published": "Published 3 weeks ago",
+    "description": "Essential French vocabulary for beginners.",
+    "subjects": ["French", "Language"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Physics Fundamentals",
+    "category": "Physics",
+    "author": "Dr. Isaac Newton",
+    "followers": 15000,
+    "views": 14000,
+    "saved": 7000,
+    "liked": 8000,
+    "featured": "Popular, Physics",
+    "published": "Published 1 week ago",
+    "description": "Fundamental concepts in physics including motion, forces, and energy.",
+    "subjects": ["Physics", "Science"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Business Management Basics",
+    "category": "Business",
+    "author": "Sarah Lee",
+    "followers": 9000,
+    "views": 8500,
+    "saved": 4000,
+    "liked": 4500,
+    "featured": "Business, Management",
+    "published": "Published 2 weeks ago",
+    "description": "Introduction to business management principles and practices.",
+    "subjects": ["Business", "Management"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "English Grammar Essentials",
+    "category": "English",
+    "author": "John Doe",
+    "followers": 11000,
+    "views": 10500,
+    "saved": 5000,
+    "liked": 5500,
+    "featured": "English, Grammar",
+    "published": "Published 3 weeks ago",
+    "description": "Key concepts in English grammar for effective communication.",
+    "subjects": ["English", "Language"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Geography Basics",
+    "category": "Geography",
+    "author": "Emily Clark",
+    "followers": 7000,
+    "views": 6800,
+    "saved": 3000,
+    "liked": 3200,
+    "featured": "Geography, Earth Science",
+    "published": "Published 1 month ago",
+    "description": "Basic concepts in geography including maps, climates, and regions.",
+    "subjects": ["Geography", "Earth Science"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Computer Science Fundamentals",
+    "category": "Computer Science",
+    "author": "Alan Turing",
+    "followers": 13000,
+    "views": 12500,
+    "saved": 6000,
+    "liked": 6500,
+    "featured": "Computer Science, Technology",
+    "published": "Published 2 weeks ago",
+    "description": "Introduction to computer science concepts and programming.",
+    "subjects": ["Computer Science", "Technology"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Social Science Theories",
+    "category": "Social Science",
+    "author": "Max Weber",
+    "followers": 8000,
+    "views": 7800,
+    "saved": 3500,
+    "liked": 3700,
+    "featured": "Social Science, Sociology",
+    "published": "Published 1 month ago",
+    "description": "Overview of key social science theories and concepts.",
+    "subjects": ["Social Science", "Sociology"],
+    "qaCount": 10,
+    "questions": [
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      },
+      {
+        "question": "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        "answers": [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]
+      }
+    ]
+  }
+]

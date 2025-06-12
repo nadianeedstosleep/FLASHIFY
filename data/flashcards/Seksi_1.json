@@ -1,0 +1,20 @@
+{
+  "section": "Seksi 1",
+  "flashcards": [
+    {
+      "question": "What is the ISO 3297:2007 Certified?",
+      "options": ["defined", "regression", "health", "healthy."],
+      "answer": "healthy."
+    },
+    {
+      "question": "Which one is a type of regression?",
+      "options": ["Linear", "Circular", "Random", "None"],
+      "answer": "Linear"
+    },
+    {
+      "question": "Which organ processes sugar?",
+      "options": ["Heart", "Brain", "Liver", "Skin"],
+      "answer": "Liver"
+    }
+  ]
+}
