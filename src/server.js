@@ -1,5 +1,7 @@
 const Hapi = require('@hapi/hapi');
 const routes = require('./routes/routes');
+const communityRoutes = require('./routes/communityRoutes');
+const cardPreviewRoutes = require('./routes/cardPreview');
 
 const init = async () => {
   const server = Hapi.server({
@@ -13,6 +15,8 @@ const init = async () => {
   server.route(routes);
   const profileRoutes = require('./routes/profileRoutes');
   server.route(profileRoutes);
+  server.route(communityRoutes);
+  server.route(cardPreviewRoutes);
   
   await server.start();
   console.log('Server running on %s', server.info.uri);

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 11,
+    "type": "flashcard",
+    "title": "Flashcard Example Set",
+    "category": "General Knowledge",
+    "author": "Jane Doe",
+    "followers": 500,
+    "views": 450,
+    "saved": 200,
+    "liked": 180,
+    "featured": "Flashcard, General",
+    "published": "Published 1 day ago",
+    "description": "This set contains flashcard style questions and answers without multiple choice.",
+    "subjects": ["General Knowledge"],
+    "qaCount": 3,
+    "questions": [
+      {
+        "question": "What is the capital of France?",
+        "answer": "Paris"
+      },
+      {
+        "question": "Name the process by which plants make food.",
+        "answer": "Photosynthesis"
+      },
+      {
+        "question": "Who wrote 'To Kill a Mockingbird'?",
+        "answer": "Harper Lee"
+      }
+    ]
+  }
+]
