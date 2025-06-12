@@ -83,12 +83,6 @@ const DashboardView = {
                 </div>
                 </div>
 
-                <!-- Question Limit -->
-                <div class="modal-group">
-                <label class="modal-label" for="questionLimit">Total Questions</label>
-                <input type="number" id="questionLimit" min="1" max="100" value="10" />
-                </div>
-
                 <!-- Categories -->
                 <div class="modal-group">
                 <label class="modal-label" for="categoryInput">Category</label>
@@ -214,30 +208,25 @@ const DashboardView = {
     });
 
     submitBtn.addEventListener('click', () => {
-      const totalCards = parseInt(document.getElementById('questionLimit').value);
+      const totalCards = 10;
       const questionType = document.querySelector('input[name="questionType"]:checked')?.value;
 
-      if (totalCards > 0) {
-        localStorage.setItem('flashcardCategories', JSON.stringify(tags));
-        localStorage.setItem('flashcardType', questionType); // simpan jenis soal juga
+      localStorage.setItem('flashcardCategories', JSON.stringify(tags));
+      localStorage.setItem('flashcardType', questionType); 
 
-        // ✅ Routing berdasarkan tipe soal
-        const route = questionType === 'multiple-choice'
-          ? `#/multiple-choice/${totalCards}`
-          : `#/flashcard/${totalCards}`;
+      const route = questionType === 'multiple-choice'
+        ? `#/multiple-choice/${totalCards}`
+        : `#/flashcard/${totalCards}`;
 
-        window.location.hash = route;
-        modal.classList.add('hidden');
-      }
+      window.location.hash = route;
+      modal.classList.add('hidden');
     });
 
     const typeSelect = document.querySelector('input[name="questionType"]');
-    const limitInput = document.getElementById('questionLimit');
 
-    [typeSelect, limitInput].forEach(el => {
+    [typeSelect].forEach(el => {
         el?.addEventListener('change', () => {
-        const limit = parseInt(limitInput.value);
-        submitBtn.disabled = !(limit >= 1);
+        submitBtn.disabled = false; // selalu aktif
         });
     });
   }

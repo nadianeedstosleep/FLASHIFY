@@ -8,7 +8,7 @@ export default class FlashcardView {
   renderCard(data) {
     this.container.innerHTML = `
       <div class="flashcard" id="flashcard">
-        <div class="flashcard-face flashcard-front">${data.front}<br/><span style="font-size:1rem;">(Front: Question, Back: Answer)</span></div>
+        <div class="flashcard-face flashcard-front">${data.front}<br/><span style="font-size:1rem;"></span></div>
         <div class="flashcard-face flashcard-back">${data.back}</div>
       </div>
     `;

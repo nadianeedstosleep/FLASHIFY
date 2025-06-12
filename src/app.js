@@ -10,13 +10,19 @@ export default class App {
 
   // Menambahkan Presenter ke aplikasi
   async setPresenter(PresenterOrInstance) {
-    // Jika sudah berupa instance (sudah dibuat dengan `new`)
     if (typeof PresenterOrInstance === 'object') {
       this.presenter = PresenterOrInstance;
-    }
-    // Jika masih class (fungsi konstruktor)
-    else if (typeof PresenterOrInstance === 'function') {
-      this.presenter = new PresenterOrInstance(this.rootElement);
+    } else if (typeof PresenterOrInstance === 'function') {
+      const hash = window.location.hash;
+      const match = hash.match(/#\/collection\/(\d+)/);
+
+      if (match && PresenterOrInstance.routeParams) {
+        const id = PresenterOrInstance.routeParams.id;
+        this.presenter = new PresenterOrInstance(this.rootElement, { id });
+        delete PresenterOrInstance.routeParams;
+      } else {
+        this.presenter = new PresenterOrInstance(this.rootElement);
+      }
     } else {
       console.error('Invalid presenter:', PresenterOrInstance);
       return;
@@ -30,19 +36,19 @@ export default class App {
     if (typeof this.presenter.afterRender === 'function') {
       await this.presenter.afterRender();
     }
-}
+  }
 
-  // Fungsi untuk menangani event ketika pengguna melakukan pencarian atau klik pada elemen lainnya
+  // Menangani pencarian
   async handleSearch(query) {
-    if (this.presenter) {
-      await this.presenter.handleSearch(query); // Menangani pencarian berdasarkan query
+    if (this.presenter?.handleSearch) {
+      await this.presenter.handleSearch(query);
     }
   }
 
-  // Fungsi untuk menangani penghapusan item riwayat
+  // Menangani penghapusan item
   async handleDelete(id) {
-    if (this.presenter) {
-      await this.presenter.handleDelete(id); // Menangani penghapusan riwayat berdasarkan id
+    if (this.presenter?.handleDelete) {
+      await this.presenter.handleDelete(id);
     }
   }
 }

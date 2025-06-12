@@ -26,16 +26,20 @@ const MultipleChoiceView = {
       ];
 
       // Acak urutan jawaban
-      const shuffledOptions = options.sort(() => Math.random() - 0.5);
+      const shuffledOptions = [...q.options].map(opt => ({
+        text: opt,
+        isCorrect: opt === q.back,
+      })).sort(() => Math.random() - 0.5);
 
       // Label A-D
-      const optionLabels = ['A', 'B', 'C', 'D'];
+      const optionLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
       const optionsHTML = shuffledOptions.map((opt, idx) => `
         <li class="mc-option ${opt.isCorrect ? 'correct-answer highlight-correct' : ''}">
           <strong>${optionLabels[idx]}.</strong> ${opt.text}
         </li>
       `).join('');
+
 
       return `
         <div class="mc-card">

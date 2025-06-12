@@ -27,6 +27,8 @@ body {
   background-color: var(--bg-header);
   padding: 1rem 4rem;
   position: relative;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .header h1 {
@@ -313,4 +315,6 @@ body.multiple-choice-page .flashcard-container {
   background-color: var(--btn-purple);
   color: white;
   cursor: pointer;
+  pointer-events: auto;
 }
+

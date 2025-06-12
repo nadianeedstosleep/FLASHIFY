@@ -256,4 +256,117 @@ button {
   display: none !important;
 }
 
+/* === Responsive Styles === */
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+    overflow-y: auto;
+  }
+  body {
+    display: block;
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .register-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .register-illustration {
+    flex: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  .register-illustration img {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .register-form-wrapper {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    padding-top: 1rem;
+  }
+
+  .register-form-wrapper h1 {
+    font-size: 2rem;
+  }
+
+  .register-form-wrapper p {
+    font-size: 1rem;
+  }
+
+  .register-form input[type="text"],
+  .register-form input[type="email"],
+  .register-form input[type="password"] {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .register-form button {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    height: auto;
+    overflow-y: auto;
+  }
+  body {
+    display: block;
+    min-height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .register-container {
+    padding: 0.5rem;
+  }
+
+  .register-illustration img {
+    max-width: 70%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .register-form-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .register-form-wrapper h1 {
+    font-size: 1.5rem;
+  }
+
+  .register-form-wrapper p {
+    font-size: 0.9rem;
+  }
+
+  .register-form input[type="text"],
+  .register-form input[type="email"],
+  .register-form input[type="password"] {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .register-form button {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .logo-wrapper {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .logo-wrapper .logo {
+    height: 18px;
+  }
+}
+
 

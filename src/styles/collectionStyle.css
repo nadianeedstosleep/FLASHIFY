@@ -40,13 +40,14 @@
 
 .collection-toolbar {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  margin: 2rem auto 1.5rem auto;
+  margin-bottom: 1.5rem;
   margin-top: 2rem;
-  flex-wrap: wrap;
   width: 100%;
-  max-width:100%;
+  max-width: 600px;
 }
 
 .collection-controls {
@@ -72,6 +73,8 @@
   cursor: pointer;
   font-family: 'hind', sans-serif;
   transition: background 0.2s ease;
+  width: 100%;
+  max-width: 180px;
 }
 
 .search-wrapper {
@@ -90,11 +93,10 @@
 
 .search-bar {
   width: 100%;
-  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
   border-radius: 8px;
   border: none;
-  background: transparent;
-  color: #EEF1FD;
+  background-color: #48388E;
   font-size: 1rem;
   font-family: 'Hind', sans-serif;
 }
@@ -115,14 +117,8 @@
   right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #888;
+  color: #b6a5d4;
   pointer-events: none;
-}
-
-.filter-icon {
-  padding: 0.2rem;
-  border-radius: 8px;
-  font-size: 1.2rem;
 }
 
 .collection-grid {
@@ -144,7 +140,6 @@
   font-weight: 600;
   transition: transform 0.2s ease;
 }
-
 
 .collection-card:hover {
   transform: translateY(-4px);
@@ -286,5 +281,46 @@
   height: 100px;
   object-fit: cover;
   margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .collection-grid {
+    gap: 0.8rem;
+  }
+
+  .add-btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .search-bar::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 0.4rem 1rem;
+  }
+
+  .modal-box {
+    width: 90%;
+    padding: 0.5rem;
+  }
+
+  .modal-title {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .modal-columns {
+    flex-direction: column;
+  }
+
+  .modal-columns{
+    gap: 1rem;
+    padding: 1rem;
+  }
 }
 

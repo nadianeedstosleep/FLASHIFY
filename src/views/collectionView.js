@@ -21,13 +21,11 @@ const CollectionView = {
                 <input type="text" class="search-bar" placeholder="Search Collections" />
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
               </div>
-
-              <i class="fa-solid fa-filter filter-icon"></i>
             </div>
             
             <div class="collection-grid">
             ${collections.map(c => `
-                <a href="#/collections/${c.id}" class="collection-card-link">
+                <a href="#/collection/${c.id}" class="collection-card-link">
                 <div class="collection-card">
                     <img src="${c.image}" alt="${c.title}" />
                     <h3 class="collection-card-title">${c.title}</h3>

@@ -1,8 +1,9 @@
 // flashcardModel.js
 export default class FlashcardModel {
-  constructor(numberOfCards) {
-    this.cards = this.generateCards(numberOfCards);  // Generate flashcards sesuai jumlah yang diminta
-    this.index = 0;  // Menyimpan indeks kartu yang sedang ditampilkan
+  constructor(sectionId) {
+    this.sectionId = sectionId;
+    this.cards = [];
+    this.index = 0;
   }
 
   // Fungsi untuk menghasilkan kartu flashcard
@@ -55,4 +56,23 @@ export default class FlashcardModel {
   reset() {
     this.currentIndex = 0;
   }
+
+  async fetchCardsFromJson() {
+  try {
+    const response = await fetch(`http://localhost:5000/flashcards/${this.sectionId}`);
+    const data = await response.json();
+
+    // Konversi dari {question, options, answer} → {front, back}
+    this.cards = data.flashcards.map(card => ({
+      front: card.question,
+      back: card.answer,
+      options: card.options, // ini penting
+    }));
+
+  } catch (error) {
+    console.error('❌ Gagal mengambil flashcard:', error);
+    this.cards = [];
+  }
+}
+
 }

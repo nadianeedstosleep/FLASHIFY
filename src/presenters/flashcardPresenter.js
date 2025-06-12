@@ -4,9 +4,10 @@ import FlashcardComponent from "../components/flashcard.js";
 import CompletionPopup from "../components/completionPopup.js";
 
 export default class FlashcardPresenter {
-  constructor(containerElement, numberOfCards) {
+  constructor(containerElement) {
     this.containerElement = containerElement;
-    this.model = new FlashcardModel(numberOfCards);
+    const sectionId = localStorage.getItem('flashcardSectionId') || 'Seksi_1';
+    this.model = new FlashcardModel(sectionId);
     this.view = null;
     this.attempts = 1;
   }
@@ -23,15 +24,15 @@ export default class FlashcardPresenter {
 
   async afterRender() {
     this.view = new FlashcardView();
+
+    await this.model.fetchCardsFromJson(); // Ambil dari file JSON
     this.view.bindNav(() => this.showPrev(), () => this.showNext());
     this.updateView();
 
     const closeBtn = document.querySelector('.close-btn');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        window.location.hash = '#/dashboard';
-      });
-    }
+    closeBtn?.addEventListener('click', () => {
+      window.location.hash = '#/dashboard';
+    });
   }
 
   updateView() {
@@ -57,23 +58,27 @@ export default class FlashcardPresenter {
   }
 
   showCompletionPopup() {
+    // Bersihkan popup lama kalau ada
+    document.querySelector('.popup-overlay')?.remove();
+
     const popupHTML = CompletionPopup({
-      progress: 100, // Atur sesuai tracking
-      attempts: 3,   // Ambil dari model atau simpanan
+      progress: 100,
+      attempts: this.attempts,
     });
+
     const wrapper = document.createElement('div');
     wrapper.innerHTML = popupHTML;
     document.body.appendChild(wrapper);
 
-    document.getElementById('re-attempt')?.addEventListener('click', () => {
-      // reset ulang
-      location.reload();
-    });
+    setTimeout(() => {
+      document.getElementById('re-attempt')?.addEventListener('click', () => {
+        location.reload();
+      });
 
-    document.getElementById('popup-finish-btn')?.addEventListener('click', () => {
-      const overlay = document.querySelector('.popup-overlay');
-      if (overlay) overlay.remove();
-      window.location.hash = '#/dashboard';
-    });
+      document.getElementById('popup-finish-btn')?.addEventListener('click', () => {
+        document.querySelector('.popup-overlay')?.remove();
+        window.location.hash = '#/dashboard';
+      });
+    }, 0);
   }
 }

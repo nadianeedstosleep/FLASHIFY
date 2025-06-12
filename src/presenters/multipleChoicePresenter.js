@@ -3,24 +3,29 @@ import MultipleChoiceView from "../views/multipleChoiceView.js";
 import CompletionPopup from "../components/completionPopup.js";
 
 export default class MultipleChoicePresenter {
-  constructor(containerElement, numberOfCards) {
+  constructor(containerElement) {
     this.containerElement = containerElement;
-    this.model = new FlashcardModel(numberOfCards);
+    const sectionId = localStorage.getItem('flashcardSectionId') || 'Seksi_1';
+    this.model = new FlashcardModel(sectionId);
     this.view = MultipleChoiceView;
-    this.attempts = 1; // Track attempt di presenter
+    this.attempts = 1;
   }
 
   render() {
     document.body.classList.add('multiple-choice-page');
     document.body.classList.remove('flashcard-page');
-
-    const questions = this.model.cards;
-    const categories = JSON.parse(localStorage.getItem('flashcardCategories')) || [];
-
-    return this.view.render({ questions, categories });
   }
 
   async afterRender() {
+    await this.model.fetchCardsFromJson(); // Pastikan cards sudah ada
+
+    const categories = JSON.parse(localStorage.getItem('flashcardCategories')) || [];
+
+    this.containerElement.innerHTML = this.view.render({
+      questions: this.model.cards,
+      categories,
+    });
+
     this.view.afterRender({
       onFinish: () => this.showCompletionPopup()
     });

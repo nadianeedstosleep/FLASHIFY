@@ -32,3 +32,19 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .notification-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notification-content {
+    width: 100%;
+  }
+
+  .see-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
