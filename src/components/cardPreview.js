@@ -1,3 +1,6 @@
+import ConfirmationPlay from './confirmationPlay.js';
+import SaveToCollectionModal from './saveToCollectionModal.js';
+
 export function createCardPreviewComponent(data) {
   const container = document.createElement("div");
   container.className = "card-preview";
@@ -5,22 +8,42 @@ export function createCardPreviewComponent(data) {
   const viewsFormatted = data.views?.toLocaleString?.() || '0';
   const followersFormatted = data.followers?.toLocaleString?.() || '0';
 
-  const questionsHTML = (data.questions || []).map((q, index) => `
-    <article class="question-block">
-      <h3 class="question-title">Question ${index + 1}</h3>
-      <p class="question-text">${q.question || ''}</p>
-      <div class="answers">
-        ${(q.answers || []).map((ans, idx) => `
-          <div class="answer">
-            <div class="option">${String.fromCharCode(65 + idx)}</div>
-            <span>${ans}</span>
-          </div>
-        `).join('')}
-      </div>
-    </article>
-  `).join('');
+  let questionsHTML = '';
 
- container.innerHTML = `
+  if (data.type === 'flashcard') {
+    questionsHTML = (data.questions || []).map((q, index) => {
+      let answerHTML = '';
+      if (Array.isArray(q.answer)) {
+        answerHTML = '<ul>' + q.answer.map(ans => `<li>${ans}</li>`).join('') + '</ul>';
+      } else {
+        answerHTML = `<p>${q.answer || ''}</p>`;
+      }
+      return `
+        <article class="question-block">
+          <h3 class="question-title">Question ${index + 1}</h3>
+          <p class="question-text">${q.question || ''}</p>
+          <div class="answer">${answerHTML}</div>
+        </article>
+      `;
+    }).join('');
+  } else {
+    questionsHTML = (data.questions || []).map((q, index) => `
+      <article class="question-block">
+        <h3 class="question-title">Question ${index + 1}</h3>
+        <p class="question-text">${q.question || ''}</p>
+        <div class="answers">
+          ${(q.answers || []).map((ans, idx) => `
+            <div class="answer">
+              <div class="option">${String.fromCharCode(65 + idx)}</div>
+              <span>${ans}</span>
+            </div>
+          `).join('')}
+        </div>
+      </article>
+    `).join('');
+  }
+
+  container.innerHTML = `
   <div class="card-inner">
     <!-- Header -->
     <header class="card-header">
@@ -32,8 +55,8 @@ export function createCardPreviewComponent(data) {
         </div>
       </div>
       <div class="action-buttons">
-        <button class="button">Save</button>
-        <button class="button">Play</button>
+        <button class="button save-button">Save</button>
+        <button class="button play-button">Play</button>
       </div>
     </header>
 
@@ -58,6 +81,48 @@ export function createCardPreviewComponent(data) {
   </div>
 `;
 
+  // Add event listener for Play button to show confirmation modal
+  setTimeout(() => {
+    const playButton = container.querySelector('.play-button');
+    if (playButton) {
+      playButton.addEventListener('click', () => {
+        const confirmation = new ConfirmationPlay(
+          document.body,
+          { title: data.title || 'Untitled', author: data.author || 'Unknown Author' },
+          () => {
+            // Confirm callback: proceed with play action
+            console.log('User confirmed to start learning:', data.title);
+            // TODO: Add actual play logic here, e.g., navigate to flashcard session
+          },
+          () => {
+            // Cancel callback: do nothing
+            console.log('User cancelled learning:', data.title);
+          }
+        );
+        confirmation.render();
+      });
+    }
+
+    // Add event listener for Save button to show save to collection modal
+    const saveButton = container.querySelector('.save-button');
+    if (saveButton) {
+      saveButton.addEventListener('click', () => {
+        const collections = ["My Collection 1", "My Collection 2", "My Collection 3", "My Collection 4"];
+        const saveModal = new SaveToCollectionModal(
+          document.body,
+          collections,
+          (selectedCollections) => {
+            console.log('User saved to collections:', selectedCollections);
+            // TODO: Add actual save logic here
+          },
+          () => {
+            console.log('User cancelled save to collection');
+          }
+        );
+        saveModal.render();
+      });
+    }
+  }, 0);
 
   return container;
 }

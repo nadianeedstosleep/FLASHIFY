@@ -1,4 +1,12 @@
 /* landingStyle.css */
+#main-content {
+  display: block;
+  min-height: 100%; /* atau min-height: 100%; */
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
 
 /* === HERO SECTION === */
 .hero {
@@ -7,7 +15,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: calc(100vh - 72px); /* Menyesuaikan tinggi dengan tinggi header */
+  height: calc(100vh - 72px); /* Tinggi hero section sesuai viewport minus tinggi header */
   display: flex; /* Memastikan hero section terlihat */
   flex-direction: column;
   justify-content: center;
@@ -125,8 +133,9 @@
 /* Untuk layar desktop kecil dan tablet (>= 768px) */
 @media (min-width: 768px) {
   .hero {
-    /* Pastikan tinggi hero responsif atau fixed height jika diperlukan */
-    /* Properti `display: flex;` sudah diatur di luar media query */
+    display: block;
+    height: calc(100vh - 72px); /* Tetap tinggi hero sesuai viewport minus header */
+    padding: 0 1.5rem; /* Padding tetap untuk hero */
   }
 
   .features {
@@ -157,15 +166,6 @@
 }
 
 /* Untuk layar desktop besar (>= 1200px) */
-@media (min-width: 1200px) {
-  .hero {
-    min-height: 600px; /* Tinggi minimum untuk hero section */
-    height: calc(100vh - 72px); /* Menyesuaikan tinggi dengan viewport */
-    max-height: none;
-  }
-
-  /* .features sudah di-display: block di 768px, ini hanya menambahkan padding */
-  .features {
-    padding-top: 2rem;
-  }
+.footer {
+  width: 100%;
 }

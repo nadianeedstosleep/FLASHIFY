@@ -22,16 +22,9 @@ const routeHandler = (route) => {
       });
 
       const Presenter = dynamicRoute.presenter;
-<<<<<<< HEAD
 
       console.log(`Rendering dynamic presenter with params:`, params);
       app.setPresenter(Presenter, params);
-=======
-      Presenter.routeParams = params;
-
-      console.log(`Rendering dynamic presenter with params:`, params);
-      app.setPresenter(Presenter);
->>>>>>> 73ca349d07d88c13da0f2591aa8fc2beeb399262
       return;
     }
   }

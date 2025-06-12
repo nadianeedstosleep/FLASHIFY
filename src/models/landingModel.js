@@ -21,6 +21,7 @@ export default class LandingModel {
 
   getCallToAction() {
     return {
+      backgroundImage: '/assets/images/landing-hero.jpg',
       heading: 'Boost your memory, boost your grades.',
       buttonText: 'Get Started',
       buttonLink: '#/register',
