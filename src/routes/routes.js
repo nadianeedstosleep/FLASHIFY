@@ -10,6 +10,9 @@ import NotificationPresenter from '../presenters/notificationPresenter.js';
 import HistoryPresenter from '../presenters/historyPresenter.js';
 import ProfilePresenter from '../presenters/profilePresenter.js';
 import DetailCollectionPresenter from '../presenters/detailCollectionPresenter.js';
+import DetailCollectionPresenter from '../presenters/detailCollectionPresenter.js';
+import CommunityPresenter from '../presenters/communityPresenter.js';
+import CommunityDetailPresenter from '../presenters/communityDetailPresenter.js';
 
 export const routes = {
   '#/': LandingPresenter,
@@ -22,12 +25,18 @@ export const routes = {
   '#/notifications': NotificationPresenter,
   '#/history': HistoryPresenter,
   '#/profile': ProfilePresenter,
+  '#/community': CommunityPresenter,
 };
 
 export const dynamicRoutes = [
   {
     pattern: /^#\/collection\/(\d+)$/,
     presenter: DetailCollectionPresenter,
+    paramKeys: ['id'],
+  },
+  {
+    pattern: /^#\/community\/(\d+)$/,
+    presenter: CommunityDetailPresenter,
     paramKeys: ['id'],
   }
 ];

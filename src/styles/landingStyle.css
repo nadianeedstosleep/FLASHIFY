@@ -1,0 +1,171 @@
+/* landingStyle.css */
+#main-content {
+  display: block;
+  min-height: 100%; /* atau min-height: 100%; */
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* === HERO SECTION === */
+.hero {
+  position: relative;
+  /* background-image akan diisi via JS dari LandingView.js */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(100vh - 72px); /* Tinggi hero section sesuai viewport minus tinggi header */
+  display: flex; /* Memastikan hero section terlihat */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 1.5rem;
+  scroll-margin-top: 72px; /* Offset untuk header tetap saat scrolling */
+}
+
+/* Overlay untuk efek blur dan kegelapan pada hero background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px); /* Efek blur pada area di belakang overlay */
+  background-color: rgba(0, 0, 0, 0.4); /* Overlay hitam transparan */
+  z-index: 0; /* Pastikan di bawah konten hero */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Pastikan konten hero (h1, button) di atas overlay */
+}
+
+.hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Ukuran font responsif */
+  margin-bottom: 1.5rem;
+}
+
+.hero-content .cta-button {
+  background: linear-gradient(to right, #ef99f7, #d58cff);
+  color: white;
+  border: none;
+  border-radius: 9999px; /* Bentuk pil */
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transisi halus untuk hover */
+}
+
+.hero-content .cta-button:hover {
+  transform: scale(1.05); /* Sedikit membesar saat hover */
+  box-shadow: 0 4px 20px rgba(223, 148, 255, 0.4); /* Efek bayangan saat hover */
+}
+
+/* === BODY SECTION (FEATURES) === */
+.features {
+  background-color: #21096C;
+  padding: 4rem 1.5rem;
+  color: #e1bde8;
+  text-align: center;
+  /* Secara default, ini mungkin tidak terlihat tanpa `display` yang eksplisit
+     jika ada aturan reset atau global yang menyembunyikan section.
+     Kita akan pastikan terlihat di media query 768px. */
+}
+
+.features-intro {
+  display: flex;
+  flex-direction: column; /* Default stack vertikal untuk mobile */
+  gap: 1rem;
+  background: #a259ff;
+  color: white;
+  border-radius: 12px;
+  max-width: 768px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.features-intro h3 {
+  margin: 0.5rem 0;
+}
+
+.features-details {
+  display: flex;
+  flex-direction: column; /* Default stack vertikal untuk mobile */
+  gap: 4rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column; /* Default stack vertikal untuk mobile */
+  align-items: center;
+  text-align: left; /* Teks default di kiri, akan diatur ulang di mobile */
+  gap: 1rem;
+}
+
+.feature-item img {
+  max-width: 300px;
+}
+
+.feature-item-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f4c8ff;
+}
+
+.feature-item h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.25rem 0;
+}
+
+/* === MEDIA QUERIES === */
+
+/* Untuk layar desktop kecil dan tablet (>= 768px) */
+@media (min-width: 768px) {
+  .hero {
+    display: block;
+    height: calc(100vh - 72px); /* Tetap tinggi hero sesuai viewport minus header */
+    padding: 0 1.5rem; /* Padding tetap untuk hero */
+  }
+
+  .features {
+    display: block; /* PENTING: Pastikan section fitur terlihat di desktop */
+    /* Jika Anda ingin fitur-intro dan fitur-details menggunakan flexbox di sini,
+       Anda bisa mengatur `display: flex;` untuk `.features` dan atur `flex-direction` */
+  }
+
+  .features-intro {
+    flex-direction: row; /* Ubah ke baris untuk desktop */
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .features-intro > div {
+    flex: 1; /* Memberikan lebar yang sama pada setiap item */
+    padding: 0 1rem;
+  }
+
+  .feature-item {
+    flex-direction: row; /* Ubah ke baris untuk desktop */
+    text-align: left;
+  }
+
+  .feature-item:nth-child(even) {
+    flex-direction: row-reverse; /* Balik urutan untuk item genap */
+  }
+}
+
+/* Untuk layar desktop besar (>= 1200px) */
+.footer {
+  width: 100%;
+}

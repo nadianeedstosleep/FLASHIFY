@@ -1,0 +1,120 @@
+.save-collection-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.save-collection-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  max-width: 600px;
+  width: 90%;
+  color: #2e2e4d;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  position: relative;
+}
+
+.save-collection-modal h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #2e2e4d;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #2e2e4d;
+  cursor: pointer;
+}
+
+.add-to-collection {
+  margin-bottom: 1.5rem;
+}
+
+.section-label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #2e2e4d;
+}
+
+.collections-list {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.collection-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: #2e2e4d;
+  background-color: #f0e6ff;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+}
+
+.collection-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #a56eff;
+}
+
+.collection-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.create-new-collection input[type="text"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid #7a5fc1;
+  background: white;
+  color: #2e2e4d;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.create-new-collection input[type="text"]:focus {
+  border-color: #d58cff;
+}
+
+.btn-save-collection {
+  background: #d58cff;
+  color: white;
+  border: none;
+  padding: 0.85rem 2.5rem;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  cursor: pointer;
+  /* box-shadow: 0 6px 20px rgba(213, 140, 255, 0.7); */
+  transition: background-color 0.3s ease;
+}
+
+.btn-save-collection:hover {
+  background: #a03db8;
+}

@@ -1,0 +1,82 @@
+.confirmation-play-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgba(29, 15, 69, 0.85); */
+  /* backdrop-filter: blur(8px); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-play-modal {
+  background: #4b3380;
+  border-radius: 24px;
+  padding: 3rem 4rem;
+  max-width: 600px;
+  width: 90%;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: none;
+  text-align: left;
+}
+
+.confirmation-play-modal h2 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: white;
+}
+
+.confirmation-play-modal p {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #e0d9f7;
+}
+
+.confirmation-play-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.confirmation-play-buttons button {
+  flex: none;
+  padding: 1rem 3rem;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  min-width: 160px;
+  box-shadow: none;
+}
+
+/* Confirm Button */
+.confirmation-play-buttons .btn-confirm {
+  background: #d58cff;
+  color: white;
+  border-color: #d58cff;
+}
+
+.confirmation-play-buttons .btn-confirm:hover {
+  background: #be7ade; /* darker shade */
+  border-color: #be7ade;
+}
+
+/* Cancel Button */
+.confirmation-play-buttons .btn-cancel {
+  background: transparent;
+  color: white;
+  border-color: #d58cff;
+  box-shadow: none;
+}
+
+.confirmation-play-buttons .btn-cancel:hover {
+  background: rgba(213, 140, 255, 0.1); /* light overlay on hover */
+}
