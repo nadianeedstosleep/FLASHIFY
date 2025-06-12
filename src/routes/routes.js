@@ -1,4 +1,5 @@
 const { registerUser, loginUser } = require('../handlers/userHandler.js');  // Import the handler functions
+const cardRoutes = require('./card.js');
 
 const routes = [
   {
@@ -11,6 +12,7 @@ const routes = [
     path: '/auth/login',
     handler: loginUser,
   },
+  ...cardRoutes
 ];
 
 module.exports = routes;
