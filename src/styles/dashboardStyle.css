@@ -127,7 +127,7 @@ p{
   }
 
   .collections-cards {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller columns on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
     gap: 1rem;
   }
 

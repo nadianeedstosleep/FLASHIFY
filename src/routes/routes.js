@@ -10,7 +10,6 @@ import NotificationPresenter from '../presenters/notificationPresenter.js';
 import HistoryPresenter from '../presenters/historyPresenter.js';
 import ProfilePresenter from '../presenters/profilePresenter.js';
 import DetailCollectionPresenter from '../presenters/detailCollectionPresenter.js';
-import DetailCollectionPresenter from '../presenters/detailCollectionPresenter.js';
 import CommunityPresenter from '../presenters/communityPresenter.js';
 import CommunityDetailPresenter from '../presenters/communityDetailPresenter.js';
 

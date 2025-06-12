@@ -59,7 +59,7 @@
   margin-bottom: 1rem;
 }
 
-.collection-item {
+.save-collection-item {
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
@@ -70,7 +70,7 @@
   padding: 0.5rem 1rem;
 }
 
-.collection-item input[type="checkbox"] {
+.save-collection-item input[type="checkbox"] {
   margin-right: 0.75rem;
   width: 20px;
   height: 20px;
@@ -78,7 +78,7 @@
   accent-color: #a56eff;
 }
 
-.collection-item input[type="checkbox"] {
+.save-collection-item input[type="checkbox"] {
   margin-right: 0.75rem;
   width: 18px;
   height: 18px;

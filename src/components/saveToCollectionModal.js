@@ -11,7 +11,7 @@ export default class SaveToCollectionModal {
 
   render() {
     const collectionsHtml = this.collections.map((col, index) => `
-      <label class="collection-item">
+      <label class="save-collection-item">
         <input type="checkbox" name="collection" value="${col}" ${index === 0 ? 'checked' : ''} />
         <span>${col}</span>
       </label>
