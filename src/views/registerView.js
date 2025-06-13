@@ -3,7 +3,9 @@ import '../styles/registerStyle.css';
 export default function generateRegisterView() {
   return `
     <div class="logo-wrapper">
+      <a href="#/">
         <img src="/assets/icons/flashify-logo.svg" alt="Flashify Logo" class="logo" />
+      </a>
     </div>
 
     <section class="register-container">

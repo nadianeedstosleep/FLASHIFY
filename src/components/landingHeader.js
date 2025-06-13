@@ -2,7 +2,7 @@ import '../styles/landingHeaderStyle.css';
 
 export function createHeader() {
   const header = document.createElement('header');
-  header.className = 'header';
+  header.className = 'landing-header';
 
   const logo = document.createElement('div');
   logo.className = 'header__logo';

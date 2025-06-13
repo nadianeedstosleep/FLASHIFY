@@ -35,6 +35,8 @@ button {
   width: 100%;
   max-width: 1200px;
   padding: 2rem;
+  padding-top: 5rem;
+  margin-left: 2rem !important;
 }
 
 /* === Illustration === */
@@ -138,12 +140,28 @@ button {
   width: auto;
 }
 
+@media (max-width: 1200px) {
+  .login-container {
+    padding-top: 5rem;
+    margin-left: 0rem !important;
+  }
+
+  .login-illustration img {
+    width: 70%;
+  }
+
+  .login-form-wrapper h1 {
+    font-size: 2rem;
+  }
+}
+
 /* === Responsive Styles === */
 @media (max-width: 768px) {
   html, body {
     height: auto;
     overflow-y: auto;
   }
+
   body {
     display: block;
     min-height: auto;
@@ -153,6 +171,7 @@ button {
   .login-container {
     flex-direction: column;
     padding: 1rem;
+    margin-left: 0rem !important;
   }
 
   .login-illustration {
@@ -198,6 +217,7 @@ button {
     height: auto;
     overflow-y: auto;
   }
+
   body {
     display: block;
     min-height: auto;
@@ -206,6 +226,7 @@ button {
 
   .login-container {
     padding: 0.5rem;
+    margin-left: 0rem !important;
   }
 
   .login-illustration {
@@ -250,5 +271,3 @@ button {
     height: 18px;
   }
 }
-
-

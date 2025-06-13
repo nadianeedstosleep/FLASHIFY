@@ -3,7 +3,7 @@ export default class FlashcardModel {
   constructor(sectionId) {
     this.sectionId = sectionId;
     this.cards = [];
-    this.index = 0;
+    this.index = parseInt(localStorage.getItem('flashcardStartIndex') || '0');
   }
 
   // Fungsi untuk menghasilkan kartu flashcard
@@ -58,21 +58,24 @@ export default class FlashcardModel {
   }
 
   async fetchCardsFromJson() {
-  try {
-    const response = await fetch(`http://localhost:5000/flashcards/${this.sectionId}`);
-    const data = await response.json();
+    try {
+      const collection = localStorage.getItem('flashcardCollectionId');
+      const response = await fetch(`http://127.0.0.1:8000/flashcards/${collection}`);
+      const data = await response.json();
 
-    // Konversi dari {question, options, answer} → {front, back}
-    this.cards = data.flashcards.map(card => ({
-      front: card.question,
-      back: card.answer,
-      options: card.options, // ini penting
-    }));
+      // Ambil semua flashcards dari semua section dan gabungkan
+      const allFlashcards = data.flatMap(item => item.flashcards || []);
 
-  } catch (error) {
-    console.error('❌ Gagal mengambil flashcard:', error);
-    this.cards = [];
+      // Transform ke bentuk yang bisa dipakai view
+      this.cards = allFlashcards.map(fc => ({
+        front: fc.question || 'No Question',
+        back: fc.answer || 'No Answer',
+        options: fc.options || [],
+      }));
+
+    } catch (error) {
+      console.error('❌ Gagal mengambil flashcard:', error);
+      this.cards = [];
+    }
   }
-}
-
 }

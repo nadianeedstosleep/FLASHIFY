@@ -16,7 +16,7 @@ export default class DashboardPresenter {
     }
 
     const collections = this.model.getCollections();
-    const history = this.model.getHistory();
+    const history = await DashboardModel.getHistory(); 
 
     return this.view.render({ collections, history });
   }

@@ -130,10 +130,12 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 24px;
-  font-size: 1.8rem;
+  font-size: 1rem;
   padding: 2rem;
   text-align: center;
   color: black;
+  overflow-y: auto;
+  word-wrap: break-word;
 }
 
 .flashcard-back {

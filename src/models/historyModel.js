@@ -1,35 +1,33 @@
-const histories = [
-  {
-    id: '1',
-    title: 'Cara masuk Isekai',
-    lastAccess: new Date(),
-    reviewed: 10,
-    total: 10,
-  },
-  {
-    id: '2',
-    title: 'Cara masuk Isekai',
-    lastAccess: new Date(),
-    reviewed: 8,
-    total: 10,
-  },
-  {
-    id: '3',
-    title: 'Cara masuk Isekai',
-    lastAccess: new Date('2025-05-16'),
-    reviewed: 8,
-    total: 10,
-  }
-];
+// src/models/historyModel.js
+const BASE_URL = 'http://127.0.0.1:8000';
 
 export default {
-  getHistories() {
-    return histories;
-  },
-  deleteHistory(id) {
-    const index = histories.findIndex(h => h.id === id);
-    if (index > -1) {
-      histories.splice(index, 1);
+  async getHistories() {
+    try {
+      const response = await fetch(`${BASE_URL}/history`);
+      const data = await response.json();
+
+      // Cek jika data bukan array
+      if (!Array.isArray(data)) {
+        console.warn('⚠️ getHistories: Expected array but got:', data);
+        return [];
+      }
+
+      // Ubah ke bentuk sesuai kebutuhan
+      return data.map(item => ({
+        id: item.id || item._id || Date.now().toString(), // fallback
+        title: item.title || 'Untitled',
+        reviewed: item.reviewed || 0,
+        total: item.total || 1,
+        lastAccess: item.timestamp || new Date().toISOString(), // ⬅️ ambil dari timestamp
+      }));
+    } catch (err) {
+      console.error('❌ Gagal fetch history:', err);
+      return [];
     }
+  },
+
+  deleteHistory(id) {
+    // nanti bisa pakai API backend juga
   }
 };

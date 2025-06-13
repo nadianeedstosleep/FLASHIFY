@@ -19,9 +19,6 @@ const createHistoryCard = (history) => {
         </div>
       </div>
       <div class="history-progress">${isCompleted ? 'Completed' : `${progress}% Completed`}</div>
-      <button class="delete-btn" data-id="${history.id}" aria-label="Delete history">
-        <img src="/assets/icons/delete.png" alt="Delete" width="32" height="32" />
-      </button>
     </div>
   `;
 };

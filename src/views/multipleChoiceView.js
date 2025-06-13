@@ -16,7 +16,6 @@ const MultipleChoiceView = {
     }).join('');
 
     const questionsHTML = questions.map((q, i) => {
-      const correctAnswer = q.back;
 
       const options = [
         { text: correctAnswer, isCorrect: true },
@@ -26,16 +25,21 @@ const MultipleChoiceView = {
       ];
 
       // Acak urutan jawaban
-      const shuffledOptions = [...q.options].map(opt => ({
+      const correctAnswer = q.back.trim().toLowerCase();
+
+      // Gabungkan dan hapus duplikat
+      const uniqueOptions = Array.from(new Set([...q.options, q.back]));
+
+      const shuffledOptions = uniqueOptions.map(opt => ({
         text: opt,
-        isCorrect: opt === q.back,
+        isCorrect: opt.trim().toLowerCase() === correctAnswer,
       })).sort(() => Math.random() - 0.5);
 
       // Label A-D
       const optionLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
       const optionsHTML = shuffledOptions.map((opt, idx) => `
-        <li class="mc-option ${opt.isCorrect ? 'correct-answer highlight-correct' : ''}">
+        <li class="mc-option ${opt.isCorrect ? 'correct-answer' : ''}">
           <strong>${optionLabels[idx]}.</strong> ${opt.text}
         </li>
       `).join('');
@@ -75,6 +79,10 @@ const MultipleChoiceView = {
   },
 
   afterRender({ onFinish }) {
+    document.querySelectorAll('.correct-answer').forEach(el => {
+      el.classList.add('highlight-correct');
+    });
+
     const closeBtn = document.querySelector('.close-btn');
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {

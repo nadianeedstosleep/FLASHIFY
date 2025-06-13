@@ -6,17 +6,33 @@ class DashboardModel {
 
   getCollections() {
     return [
-      { title: 'My Collection 1', count: 2, image: '/assets/images/collection-1.png' },
-      { title: 'My Collection 2', count: 10, image: '/assets/images/collection-1.png' },
+      { title: 'My Collection 1', count: 2, image: '/assets/images/collection-1.png', id: 'My_Collection_1' },
+      { title: 'My Collection 2', count: 10, image: '/assets/images/collection-1.png', id: 'My_Collection_2' },
     ];
   }
 
-  getHistory() {
-    return [
-      { type: 'Multiple Choice', title: 'English Conversation', time: '1 Hour Ago', completion: 80 },
-      { type: 'Front-Back', title: 'Business and Technology', time: '2 Hour Ago', completion: 50 },
-      { type: 'Multiple Choice', title: 'Algebra Quiz', time: '3 Hour Ago', completion: 100 },
-    ];
+  async getHistory() {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/history');
+      const result = await response.json();
+
+      // Sort by lastAccess (descending) dan ambil 3 pertama
+      const sorted = result
+        .sort((a, b) => new Date(b.lastAccess) - new Date(a.lastAccess))
+        .slice(0, 3);
+
+      return sorted.map(item => ({
+        title: item.title || 'Untitled',
+        type: item.type || 'Flashcard',
+        time: new Date(item.lastAccess).toLocaleTimeString('id-ID', {
+          hour: '2-digit', minute: '2-digit', hour12: false
+        }),
+        completion: Math.round((item.reviewed / item.total) * 100),
+      }));
+    } catch (err) {
+      console.error('❌ Gagal fetch history:', err);
+      return [];
+    }
   }
 }
 

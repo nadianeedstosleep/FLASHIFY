@@ -100,6 +100,13 @@ const DashboardView = {
             </div>
             </div>
 
+            <div id="loadingOverlay" class="modal hidden">
+              <div class="modal-backdrop"></div>
+              <div class="modal-content text-center">
+                <p>⏳ Generating Flashcards...</p>
+              </div>
+            </div>
+
           </main>
         </div>
       </div>
@@ -207,27 +214,68 @@ const DashboardView = {
         }
     });
 
-    submitBtn.addEventListener('click', () => {
-      const totalCards = 10;
+    submitBtn.addEventListener('click', async () => {
+      const file = document.getElementById('pdfInput').files[0];
+      if (!file) {
+        alert('Please upload a PDF file first.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Generating...';
+
       const questionType = document.querySelector('input[name="questionType"]:checked')?.value;
-
       localStorage.setItem('flashcardCategories', JSON.stringify(tags));
-      localStorage.setItem('flashcardType', questionType); 
 
-      const route = questionType === 'multiple-choice'
-        ? `#/multiple-choice/${totalCards}`
-        : `#/flashcard/${totalCards}`;
+      const formData = new FormData();
+      formData.append('file', file);
 
-      window.location.hash = route;
-      modal.classList.add('hidden');
-    });
-
-    const typeSelect = document.querySelector('input[name="questionType"]');
-
-    [typeSelect].forEach(el => {
-        el?.addEventListener('change', () => {
-        submitBtn.disabled = false; // selalu aktif
+      try {
+        const response = await fetch('http://127.0.0.1:8000/upload-pdf', {
+          method: 'POST',
+          body: formData,
         });
+
+        const result = await response.json();
+        console.log('📄 PDF Upload Result:', result);
+
+        if (result.status === 'success') {
+          localStorage.setItem('flashcardCollectionId', result.collection);
+          localStorage.setItem('flashcardType', questionType);
+          localStorage.setItem('flashcardCategories', JSON.stringify(tags));
+
+          const route = questionType === 'multiple-choice'
+            ? `#/multiple-choice/${result.count}`
+            : `#/flashcard/${result.count}`;
+
+          window.location.hash = route;
+          modal.classList.add('hidden');
+
+          await fetch('http://127.0.0.1:8000/save-history', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              id: result.collection,
+              title: input.files[0].name.replace('.pdf', ''),
+              reviewed: 0,
+              total: result.count,
+              lastAccess: new Date().toISOString(),
+            }),
+          });
+        } else {
+          feedback.textContent = 'Failed to process PDF.';
+          feedback.style.color = 'red';
+        }
+      } catch (error) {
+        console.error('❌ Upload Error:', error);
+        feedback.textContent = 'Error connecting to backend.';
+        feedback.style.color = 'red';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Generate';
+      }
     });
   }
 };

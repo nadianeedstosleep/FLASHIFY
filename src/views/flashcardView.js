@@ -1,5 +1,3 @@
-import CompletionPopup from '../components/completionPopup.js';
-
 export default class FlashcardView {
   constructor() {
     this.container = document.getElementById('flashcard-container');

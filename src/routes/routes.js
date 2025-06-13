@@ -18,7 +18,7 @@ export const routes = {
   '#/login': LoginPresenter,
   '#/register': RegisterPresenter,
   '#/dashboard': DashboardPresenter,
-  '#/flashcard': FlashcardPresenter,
+  '/flashcard/:collection': FlashcardPresenter,
   '#/multiple-choice': MultipleChoicePresenter, 
   '#/collection': CollectionPresenter,
   '#/notifications': NotificationPresenter,

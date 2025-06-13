@@ -14,7 +14,7 @@ export default class FlashcardPresenter {
 
   render() {
     document.body.classList.add('flashcard-page');
-  document.body.classList.remove('multiple-choice-page');
+    document.body.classList.remove('multiple-choice-page');
     const categories = JSON.parse(localStorage.getItem('flashcardCategories')) || [];
 
     return FlashcardComponent({
@@ -55,6 +55,8 @@ export default class FlashcardPresenter {
     if (this.model.getPagination().current + 1 >= this.model.getPagination().total) {
       this.showCompletionPopup();
     }
+
+    this.reviewedCount = this.model.getPagination().total;  // Simpan total sebagai reviewed
   }
 
   showCompletionPopup() {
@@ -69,6 +71,23 @@ export default class FlashcardPresenter {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = popupHTML;
     document.body.appendChild(wrapper);
+
+    // 🔁 Simpan progress ke backend
+    const collectionId = localStorage.getItem('flashcardCollectionId');
+    const title = localStorage.getItem('flashcardCollectionTitle') || 'Untitled';
+    const total = this.model.cards.length;
+
+    fetch('http://127.0.0.1:8000/save-history', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: collectionId,
+        title,
+        reviewed: this.reviewedCount || total,  // ← pakai reviewedCount
+        total,
+        lastAccess: new Date().toISOString(),
+      }),
+    }).then(res => res.json()).then(console.log).catch(console.error);
 
     setTimeout(() => {
       document.getElementById('re-attempt')?.addEventListener('click', () => {

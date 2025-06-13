@@ -4,6 +4,11 @@ export default class LandingView {
 
     return `
       <div class="landing-container">
+        <!-- Big spacer box for debugging scroll -->
+        <div class="debug-box">
+          <p>Scroll down to see the hero section</p>
+        </div>
+
         <section class="hero" style="background-image: url(${callToAction.backgroundImage});">
           <div class="hero-content">
             <h1>${callToAction.heading}</h1>

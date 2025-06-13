@@ -8,21 +8,13 @@ export default class HistoryPresenter {
   }
 
   async render() {
-    this.histories = historyModel.getHistories();
+    this.histories = await historyModel.getHistories(); // ← harus `await`
     this.root.innerHTML = HistoryView.render(this.histories);
     await this.afterRender();
   }
 
   async afterRender() {
     HistoryView.afterRender();
-
-    this.root.querySelectorAll('.delete-btn').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        const id = e.target.dataset.id;
-        historyModel.deleteHistory(id);
-        await this.refresh();
-      });
-    });
 
     this.root.querySelector('#search-history')?.addEventListener('input', async (e) => {
       const query = e.target.value.toLowerCase();
@@ -33,7 +25,7 @@ export default class HistoryPresenter {
   }
 
   async refresh() {
-    this.histories = historyModel.getHistories();
+    this.histories = await historyModel.getHistories();  // ← tambahkan await di sini
     this.root.innerHTML = HistoryView.render(this.histories);
     await this.afterRender();
   }

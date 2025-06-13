@@ -3,7 +3,8 @@ import createHistoryCard from '../components/historyCard.js';
 import Sidebar from '../components/sidebar.js';
 import Header from '../components/header.js';
 import '../styles/history.css';
-import '../styles/collectionStyle.css'; // untuk re-use style search bar collection
+import '../styles/collectionStyle.css'; 
+import CompletionPopup from '../components/completionPopup.js';
 
 const groupByDate = (histories) => {
   const grouped = {};
@@ -88,29 +89,48 @@ const HistoryView = {
 
         const popup = document.createElement('div');
         popup.classList.add('popup-overlay');
-        popup.innerHTML = `
-        <div class="popup-box">
-            <h2>${progress === 100 ? 'Completed' : 'Continue Your Learning'}</h2>
-            <p><strong>${title}</strong></p>
-            <p>Progress: ${progress}%</p>
-            <div class="popup-actions">
-            <button class="popup-continue" data-id="${id}">Continue</button>
-            <button class="popup-cancel">Cancel</button>
+
+        if (reviewed >= total) {
+          popup.innerHTML = CompletionPopup({ progress: 100, attempts: 1 });
+        } else {
+          popup.innerHTML = `
+            <div class="popup-box">
+              <h2>Continue Your Learning</h2>
+              <p><strong>${title}</strong></p>
+              <p>Progress: ${progress}%</p>
+              <div class="popup-actions">
+                <button class="popup-continue" data-id="${id}">Continue</button>
+                <button class="popup-cancel">Cancel</button>
+              </div>
             </div>
-        </div>
-        `;
+          `;
+        }
 
         document.body.appendChild(popup);
 
-        // Tombol cancel
-        popup.querySelector('.popup-cancel').addEventListener('click', () => {
-        popup.remove();
+        // Tombol cancel (berlaku untuk semua popup)
+        popup.querySelector('.popup-cancel')?.addEventListener('click', () => {
+          popup.remove();
         });
 
-        // Tombol continue (hapus popup sebelum redirect)
-        popup.querySelector('.popup-continue').addEventListener('click', () => {
-        popup.remove(); // 🟢 Hapus popup terlebih dahulu
-        window.location.hash = `/flashcard/${id}`;
+        // Tombol finish (jika progress 100%)
+        popup.querySelector('#popup-finish-btn')?.addEventListener('click', () => {
+          popup.remove();
+          window.location.hash = '#/history';
+        });
+
+        popup.querySelector('#re-attempt')?.addEventListener('click', () => {
+          popup.remove();
+          localStorage.setItem('flashcardCollectionId', id);  // ⬅️ SIMPAN ID yang benar
+          localStorage.setItem('flashcardStartIndex', '0');   // ⬅️ Mulai ulang
+          window.location.hash = `#/flashcard/${id}`;
+        });
+
+        popup.querySelector('.popup-continue')?.addEventListener('click', () => {
+          popup.remove();
+          localStorage.setItem('flashcardCollectionId', id);
+          localStorage.setItem('flashcardStartIndex', reviewed.toString());  // ⬅️ lanjut dari progress terakhir
+          window.location.hash = `#/flashcard/${id}`;
         });
     });
     });
