@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pymongo
+python-dotenv
+link drive key api: https://drive.google.com/drive/folders/1lOviLMwuhD3h1Cq5ioAtduKz8iA92rJ7?usp=sharing 
+note: cukup ambil yang inspired  bukan yang vertex client
