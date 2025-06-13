@@ -1,0 +1,322 @@
+/* Warna utama */
+:root {
+  --bg-main: #1e0b67;
+  --bg-header: #483285;
+  --purple-light: #d4a0e8;
+  --btn-green: #a7d78d;
+  --btn-yellow: #f0e18a;
+  --btn-red: #e5887e;
+  --btn-purple: #d7a3d8;
+}
+
+/* Reset dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-main);
+  color: white;
+}
+
+/* Header */
+.header {
+  background-color: var(--bg-header);
+  padding: 1rem 4rem;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.subjects {
+  margin-top: 0.5rem;
+}
+
+.subject-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--purple-light);
+  font-weight: 600;
+}
+
+/* Gabungkan styling button & span dalam .subjects */
+.subjects button,
+.subjects span {
+  background-color: var(--default-category-bg, #6a5acd);
+  padding: 0.3rem 0.8rem 0.4rem;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+
+/* Flashcard container */
+.flashcard-section {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+/* Difficulty buttons */
+.difficulty-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.difficulty-buttons button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+.difficulty-buttons .easy {
+  background-color: var(--btn-green);
+}
+.difficulty-buttons .medium {
+  background-color: var(--btn-yellow);
+}
+.difficulty-buttons .hard {
+  background-color: var(--btn-red);
+}
+.difficulty-buttons .again {
+  background-color: var(--btn-purple);
+}
+
+/* Flashcard Flip */
+.flashcard-container {
+  perspective: 1000px;
+  width: 80%;
+  max-width: 1500px;
+  height: 400px;
+  margin: auto;
+}
+
+.flashcard {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: 24px;
+  cursor: pointer;
+  background: white;
+}
+
+.flashcard.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  font-size: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: black;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+  background-color: #f9f9f9;
+}
+
+/* Pagination & nav */
+.flashcard-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem auto 0;
+  width: 80%;
+  max-width: 1500px;
+  color: var(--purple-light);
+  font-weight: bold;
+}
+
+.flashcard-navigation button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--purple-light);
+  cursor: pointer;
+}
+
+.flashcard-section {
+  position: relative; /* supaya tombol close bisa absolute di dalamnya */
+  margin: 2rem auto;
+  text-align: center;
+  max-height: 80vh; /* misal batasi tinggi max 80% viewport */
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--btn-red);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 32px;
+  user-select: none;
+}
+
+.mc-card {
+  background: white;
+  color: black;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 900px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.mc-question {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.mc-options {
+  list-style: none;
+  padding: 0;
+}
+
+.mc-options li {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background-color: #eee;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+body.multiple-choice-page .header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+body.multiple-choice-page .flashcard-section {
+  margin-top: 0.5rem;
+}
+
+body.multiple-choice-page .mc-card {
+  margin-top: 1rem;
+}
+
+body.multiple-choice-page .flashcard-container {
+  display: none; /* Jangan tampilkan elemen ini di halaman multiple choice */
+}
+
+.toggle-answer-btn {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--btn-purple);
+  color: white;
+}
+
+.highlight-correct {
+  background-color: #b4edc3 !important; /* warna hijau terang */
+  border: 2px solid #4caf50;
+  font-weight: bold;
+}
+
+.finish-btn {
+  background-color: var(--btn-green);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  color: black;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-card {
+  background: var(--bg-header);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.progress-bar-container {
+  background: #eee;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  height: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: var(--btn-purple);
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}
+
+.popup-description {
+  width: 100%;
+  height: 80px;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.popup-actions button {
+  margin: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--btn-purple);
+  color: white;
+  cursor: pointer;
+  pointer-events: auto;
+}
+

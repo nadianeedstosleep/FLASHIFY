@@ -3,8 +3,11 @@ import '../styles/loginStyle.css';
 export default function generateLoginView() {
   return `
     <div class="logo-wrapper">
-      <img src="/assets/icons/flashify-logo.svg" alt="Flashify Logo" class="logo" />
+      <a href="#/">
+        <img src="/assets/icons/flashify-logo.svg" alt="Flashify Logo" class="logo" />
+      </a>
     </div>
+
       
     <section class="login-container">
       <div class="login-illustration">

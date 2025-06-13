@@ -1,0 +1,178 @@
+/* ========== History Page Style ========== */
+.history-page {
+  padding: 2rem 1.5rem;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Hind', sans-serif;
+  color: white;
+}
+
+/* Header */
+.history-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.history-header h1 {
+  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #EEF1FD;
+  margin-bottom: 0.5rem;
+}
+
+.history-header p {
+  font-size: 1rem;
+  color: #cbb9f0;
+}
+
+/* Group by Date */
+.history-group {
+  margin-bottom: 2rem;
+}
+
+.history-group h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e0d3f9;
+  text-align: left;
+  margin: 1rem 0 0.5rem 0;
+}
+
+/* History Card */
+.history-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d8a5db;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.history-card-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.history-card-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #4c2e99;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-icon-img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Card Text */
+.history-card-details h3 {
+  margin-left: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.history-card-details p {
+  margin-left: 0.7rem;
+  text-align: left;
+  font-size: 0.8rem;
+  color: #5b2e8c;
+}
+
+/* Progress */
+.history-progress {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #4c2e99;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #361c77;
+}
+
+.delete-btn img.delete-icon-img {
+  width: 24px;
+  height: 24px;
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: #452a7a;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.popup-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.popup-box p {
+  margin: 0.5rem 0;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.popup-continue {
+  background: #d58dfd;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup-cancel {
+  background: transparent;
+  border: 2px solid #d58dfd;
+  color: #d58dfd;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup-continue:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.popup-cancel:hover {
+  background: rgba(255, 255, 255, 0.05);
+}

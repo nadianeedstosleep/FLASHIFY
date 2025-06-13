@@ -1,0 +1,67 @@
+/* components/HeaderStyle.css */
+.landing-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 72px; /* consistent height */
+  z-index: 999 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f0d68; /* updated color */
+  color: #f0e7f5; /* soft white-purple for readability */
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* subtle depth */
+}
+
+.header__logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  margin-left: 0;
+}
+
+.header__login-btn {
+  background: linear-gradient(to right, #ef99f7, #d58cff);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin-right: 0;
+}
+
+.header__login-btn:hover {
+  background: linear-gradient(to right, #f3b3ff, #e3a1ff);
+}
+
+.landing-container {
+  padding-top: 100px; /* Biarkan semua isi terhindar dari header */
+}
+
+.features {
+  margin-top: 100px; /* atau 80px, sesuaikan dengan tinggi header */
+}
+
+.hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* jika kamu ingin hero fullscreen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+body {
+  margin: 0;
+  padding-top: 72px; /* Prevent content from hiding under fixed header */
+  box-sizing: border-box;
+}

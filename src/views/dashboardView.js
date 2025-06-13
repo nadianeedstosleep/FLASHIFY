@@ -83,12 +83,6 @@ const DashboardView = {
                 </div>
                 </div>
 
-                <!-- Question Limit -->
-                <div class="modal-group">
-                <label class="modal-label" for="questionLimit">Total Questions</label>
-                <input type="number" id="questionLimit" min="1" max="100" value="10" />
-                </div>
-
                 <!-- Categories -->
                 <div class="modal-group">
                 <label class="modal-label" for="categoryInput">Category</label>
@@ -104,6 +98,13 @@ const DashboardView = {
                 <button id="submitSettingBtn" class="generate-button">Generate</button>
                 </div>
             </div>
+            </div>
+
+            <div id="loadingOverlay" class="modal hidden">
+              <div class="modal-backdrop"></div>
+              <div class="modal-content text-center">
+                <p>⏳ Generating Flashcards...</p>
+              </div>
             </div>
 
           </main>
@@ -213,23 +214,70 @@ const DashboardView = {
         }
     });
 
-    submitBtn.addEventListener('click', () => {
-        const type = document.querySelector('input[name="questionType"]:checked')?.value || '';
-        const total = parseInt(document.getElementById('questionLimit').value);
-        console.log({ type, total, tags });
-        modal.classList.add('hidden');
-    });
+    submitBtn.addEventListener('click', async () => {
+      const file = document.getElementById('pdfInput').files[0];
+      if (!file) {
+        alert('Please upload a PDF file first.');
+        return;
+      }
 
-    const typeSelect = document.querySelector('input[name="questionType"]');
-    const limitInput = document.getElementById('questionLimit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Generating...';
 
-    [typeSelect, limitInput].forEach(el => {
-        el?.addEventListener('change', () => {
-        const limit = parseInt(limitInput.value);
-        submitBtn.disabled = !(limit >= 1);
+      const questionType = document.querySelector('input[name="questionType"]:checked')?.value;
+      localStorage.setItem('flashcardCategories', JSON.stringify(tags));
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('http://127.0.0.1:8000/upload-pdf', {
+          method: 'POST',
+          body: formData,
         });
+
+        const result = await response.json();
+        console.log('📄 PDF Upload Result:', result);
+
+        if (result.status === 'success') {
+          localStorage.setItem('flashcardCollectionId', result.collection);
+          localStorage.setItem('flashcardType', questionType);
+          localStorage.setItem('flashcardCategories', JSON.stringify(tags));
+
+          const route = questionType === 'multiple-choice'
+            ? `#/multiple-choice/${result.count}`
+            : `#/flashcard/${result.count}`;
+
+          window.location.hash = route;
+          modal.classList.add('hidden');
+
+          await fetch('http://127.0.0.1:8000/save-history', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              id: result.collection,
+              title: input.files[0].name.replace('.pdf', ''),
+              reviewed: 0,
+              total: result.count,
+              lastAccess: new Date().toISOString(),
+            }),
+          });
+        } else {
+          feedback.textContent = 'Failed to process PDF.';
+          feedback.style.color = 'red';
+        }
+      } catch (error) {
+        console.error('❌ Upload Error:', error);
+        feedback.textContent = 'Error connecting to backend.';
+        feedback.style.color = 'red';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Generate';
+      }
     });
-    }
+  }
 };
 
 export default DashboardView;

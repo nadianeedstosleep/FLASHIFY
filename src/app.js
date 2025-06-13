@@ -8,26 +8,47 @@ export default class App {
     this.presenter = null;
   }
 
-  async setPresenter(Presenter) {
-    const hash = window.location.hash;
-    const match = hash.match(/#\/collection\/(\d+)/);
+  // Menambahkan Presenter ke aplikasi
+  async setPresenter(PresenterOrInstance) {
+    if (typeof PresenterOrInstance === 'object') {
+      this.presenter = PresenterOrInstance;
+    } else if (typeof PresenterOrInstance === 'function') {
+      const hash = window.location.hash;
+      const match = hash.match(/#\/collection\/(\d+)/);
 
-    let presenterInstance;
-
-    if (match && Presenter.routeParams) {
-      const id = Presenter.routeParams.id;
-      presenterInstance = new Presenter(this.rootElement, { id });
-      delete Presenter.routeParams; 
+      if (match && PresenterOrInstance.routeParams) {
+        const id = PresenterOrInstance.routeParams.id;
+        this.presenter = new PresenterOrInstance(this.rootElement, { id });
+        delete PresenterOrInstance.routeParams;
+      } else {
+        this.presenter = new PresenterOrInstance(this.rootElement);
+      }
     } else {
-      presenterInstance = new Presenter(this.rootElement);
+      console.error('Invalid presenter:', PresenterOrInstance);
+      return;
     }
 
-    this.presenter = presenterInstance;
+    const view = await this.presenter.render?.();
+    if (typeof view === 'string') {
+      this.rootElement.innerHTML = view;
+    }
 
-    const view = await this.presenter.render();
-    this.rootElement.innerHTML = view;
-    if (this.presenter.afterRender) {
+    if (typeof this.presenter.afterRender === 'function') {
       await this.presenter.afterRender();
+    }
+  }
+
+  // Menangani pencarian
+  async handleSearch(query) {
+    if (this.presenter?.handleSearch) {
+      await this.presenter.handleSearch(query);
+    }
+  }
+
+  // Menangani penghapusan item
+  async handleDelete(id) {
+    if (this.presenter?.handleDelete) {
+      await this.presenter.handleDelete(id);
     }
   }
 }
