@@ -5,7 +5,7 @@ import numpy as np
 import re
 
 # Load model TensorFlow untuk klasifikasi tingkat kesulitan (difficulty)
-MODEL_URL = "https://storage.googleapis.com/flashify/models/my_pdf_text_classifier.h5"
+model = tf.keras.models.load_model('my_pdf_text_classifier.h5') 
 
 # --- Fungsi untuk ekstraksi text dari file PDF ---
 def extract_text_from_pdf(file_path):
